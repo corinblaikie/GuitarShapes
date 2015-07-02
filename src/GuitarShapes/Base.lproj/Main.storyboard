@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3QC-1v-nG6">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scales View Controller-->
+        <scene sceneID="4SW-gk-7Ab">
+            <objects>
+                <viewController id="hh2-D1-8c3" userLabel="Scales View Controller" customClass="ScalesViewController" customModule="GuitarShapes" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lVG-D0-TJr"/>
+                        <viewControllerLayoutGuide type="bottom" id="CCJ-ud-bF2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u71-hY-9rY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C Major Scale" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bo3-A7-h0d">
+                                <rect key="frame" x="16" y="20" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C,D,E,F,G,A,B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-PY-Qbi">
+                                <rect key="frame" x="16" y="41" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPT-Qg-1Wr" customClass="GuitarShapeDiagramUIView" customModule="GuitarShapes">
+                                <rect key="frame" x="16" y="62" width="568" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KOr-2B-kPd" appends="YES" id="KeF-zP-vYB"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o0x-PY-Qbi" firstAttribute="trailing" secondItem="u71-hY-9rY" secondAttribute="trailingMargin" id="EOf-4x-Jjd"/>
+                            <constraint firstItem="bo3-A7-h0d" firstAttribute="trailing" secondItem="u71-hY-9rY" secondAttribute="trailingMargin" id="EYI-nG-N6u"/>
+                            <constraint firstItem="aPT-Qg-1Wr" firstAttribute="top" secondItem="o0x-PY-Qbi" secondAttribute="bottom" id="R1x-05-Ydj"/>
+                            <constraint firstItem="bo3-A7-h0d" firstAttribute="leading" secondItem="u71-hY-9rY" secondAttribute="leadingMargin" id="R7c-u4-JDG"/>
+                            <constraint firstItem="bo3-A7-h0d" firstAttribute="bottom" secondItem="o0x-PY-Qbi" secondAttribute="top" id="bcF-3U-f0D"/>
+                            <constraint firstItem="aPT-Qg-1Wr" firstAttribute="leading" secondItem="u71-hY-9rY" secondAttribute="leadingMargin" id="o3b-j9-h9q"/>
+                            <constraint firstItem="o0x-PY-Qbi" firstAttribute="leading" secondItem="u71-hY-9rY" secondAttribute="leadingMargin" id="t3c-2K-9dN"/>
+                            <constraint firstItem="aPT-Qg-1Wr" firstAttribute="trailing" secondItem="u71-hY-9rY" secondAttribute="trailingMargin" id="vcl-vu-hnx"/>
+                            <constraint firstItem="CCJ-ud-bF2" firstAttribute="top" secondItem="aPT-Qg-1Wr" secondAttribute="bottom" constant="-49" id="zZN-hd-gQm"/>
+                            <constraint firstItem="bo3-A7-h0d" firstAttribute="top" secondItem="lVG-D0-TJr" secondAttribute="bottom" id="zhk-Y4-CJH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scales" id="QWA-9T-JNT"/>
+                    <connections>
+                        <outlet property="diagram" destination="aPT-Qg-1Wr" id="Wxt-Cm-N8y"/>
+                        <outlet property="nameLabel" destination="bo3-A7-h0d" id="IQp-jD-9dc"/>
+                        <outlet property="notesLabel" destination="o0x-PY-Qbi" id="CxY-qY-Bhl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7g-rq-xfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="KOr-2B-kPd">
+                    <connections>
+                        <action selector="onSwipe:" destination="hh2-D1-8c3" id="bfY-m0-GNI"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="135" y="-1588"/>
+        </scene>
+        <!--Guitar Notes-->
+        <scene sceneID="gYT-JZ-ofZ">
+            <objects>
+                <viewController id="xAD-0P-nbG" userLabel="Guitar Notes" customClass="NotesViewController" customModule="GuitarShapes" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uhg-9L-S4m"/>
+                        <viewControllerLayoutGuide type="bottom" id="seg-76-3Bn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9z5-tR-dnj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZD-rF-Lc2" customClass="GuitarShapeDiagramUIView" customModule="GuitarShapes">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8MH-Q1-qid">
+                                <rect key="frame" x="16" y="441" width="568" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="cUG-j3-Z1t"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="bGW-ae-06i">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCellId" id="WDy-Mn-mad" customClass="NoteCell" customModule="GuitarShapes">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6s-je-9c6">
+                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                                    <color key="backgroundColor" red="0.39215686274509803" green="0.792156862745098" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="A">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onGuess:" destination="xAD-0P-nbG" eventType="touchUpInside" id="HJD-gu-aol"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="A6s-je-9c6" secondAttribute="bottom" id="8qL-OX-7Mt"/>
+                                            <constraint firstItem="A6s-je-9c6" firstAttribute="top" secondItem="WDy-Mn-mad" secondAttribute="topMargin" id="aEM-5T-Zbv"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="A6s-je-9c6" secondAttribute="trailing" id="dqJ-tx-5Q9"/>
+                                            <constraint firstItem="A6s-je-9c6" firstAttribute="leading" secondItem="WDy-Mn-mad" secondAttribute="leadingMargin" id="wBu-up-lsI"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="button" destination="A6s-je-9c6" id="jAl-Kf-X6e"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="xAD-0P-nbG" id="0NP-3w-2EK"/>
+                                    <outlet property="delegate" destination="xAD-0P-nbG" id="hcI-cS-tds"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="seg-76-3Bn" firstAttribute="top" secondItem="8MH-Q1-qid" secondAttribute="bottom" id="CBi-w3-W1s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OZD-rF-Lc2" secondAttribute="trailing" constant="-16" id="Jnv-hK-rfU"/>
+                            <constraint firstItem="OZD-rF-Lc2" firstAttribute="bottom" secondItem="9z5-tR-dnj" secondAttribute="bottomMargin" id="Kfs-jd-eRG"/>
+                            <constraint firstItem="8MH-Q1-qid" firstAttribute="leading" secondItem="9z5-tR-dnj" secondAttribute="leadingMargin" id="Yvk-G4-5SX"/>
+                            <constraint firstItem="OZD-rF-Lc2" firstAttribute="leading" secondItem="9z5-tR-dnj" secondAttribute="leadingMargin" constant="-16" id="ZbH-Ao-Ead"/>
+                            <constraint firstItem="OZD-rF-Lc2" firstAttribute="top" secondItem="9z5-tR-dnj" secondAttribute="topMargin" id="hRZ-hF-3Uk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8MH-Q1-qid" secondAttribute="trailing" id="sSq-jQ-M9F"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Notes" id="xg0-ZL-511"/>
+                    <connections>
+                        <outlet property="diagram" destination="OZD-rF-Lc2" id="s7U-zn-51v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYH-wi-hN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="-888.75"/>
+        </scene>
+        <!--Learn the Guitar-->
+        <scene sceneID="6Jd-eX-rYZ">
+            <objects>
+                <tabBarController title="Learn the Guitar" id="3QC-1v-nG6" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ts5-bn-QoV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="xAD-0P-nbG" kind="relationship" relationship="viewControllers" id="g3Y-xR-rUM"/>
+                        <segue destination="hh2-D1-8c3" kind="relationship" relationship="viewControllers" id="bbq-47-vxa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ed-37-TxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-740" y="-1365"/>
+        </scene>
+    </scenes>
+</document>
