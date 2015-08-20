@@ -30,6 +30,17 @@
 		534EBC771B45B81300C7C45C /* ScaleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC721B45B81300C7C45C /* ScaleLayer.swift */; };
 		534EBC781B45B81300C7C45C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC731B45B81300C7C45C /* NoteCell.swift */; };
 		534EBC791B45B88B00C7C45C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC651B45B78500C7C45C /* ArrayExtensions.swift */; };
+		53769D631B557E6B003CEB8D /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D621B557E6B003CEB8D /* test.m4a */; };
+		53769D6D1B558CB5003CEB8D /* F.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D641B558CB5003CEB8D /* F.m4a */; };
+		53769D6E1B558CB5003CEB8D /* Emin.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D651B558CB5003CEB8D /* Emin.m4a */; };
+		53769D6F1B558CB5003CEB8D /* E.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D661B558CB5003CEB8D /* E.m4a */; };
+		53769D701B558CB5003CEB8D /* G.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D671B558CB5003CEB8D /* G.m4a */; };
+		53769D711B558CB5003CEB8D /* Dmin.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D681B558CB5003CEB8D /* Dmin.m4a */; };
+		53769D721B558CB5003CEB8D /* D.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D691B558CB5003CEB8D /* D.m4a */; };
+		53769D731B558CB5003CEB8D /* C.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D6A1B558CB5003CEB8D /* C.m4a */; };
+		53769D741B558CB5003CEB8D /* Amin.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D6B1B558CB5003CEB8D /* Amin.m4a */; };
+		53769D751B558CB5003CEB8D /* A.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 53769D6C1B558CB5003CEB8D /* A.m4a */; };
+		53769D771B558DA1003CEB8D /* ChordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53769D761B558DA1003CEB8D /* ChordSoundsViewController.swift */; };
 		5398AA401B45B41D00DD259B /* NoteGuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3D1B45B41D00DD259B /* NoteGuessingGameTests.swift */; };
 		5398AA411B45B41D00DD259B /* FingerPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3E1B45B41D00DD259B /* FingerPositionTests.swift */; };
 		5398AA421B45B41D00DD259B /* ScaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3F1B45B41D00DD259B /* ScaleTests.swift */; };
@@ -67,6 +78,17 @@
 		534EBC711B45B81300C7C45C /* PositionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionLayer.swift; sourceTree = "<group>"; };
 		534EBC721B45B81300C7C45C /* ScaleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleLayer.swift; sourceTree = "<group>"; };
 		534EBC731B45B81300C7C45C /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		53769D621B557E6B003CEB8D /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
+		53769D641B558CB5003CEB8D /* F.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = F.m4a; sourceTree = "<group>"; };
+		53769D651B558CB5003CEB8D /* Emin.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Emin.m4a; sourceTree = "<group>"; };
+		53769D661B558CB5003CEB8D /* E.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = E.m4a; sourceTree = "<group>"; };
+		53769D671B558CB5003CEB8D /* G.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = G.m4a; sourceTree = "<group>"; };
+		53769D681B558CB5003CEB8D /* Dmin.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dmin.m4a; sourceTree = "<group>"; };
+		53769D691B558CB5003CEB8D /* D.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = D.m4a; sourceTree = "<group>"; };
+		53769D6A1B558CB5003CEB8D /* C.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = C.m4a; sourceTree = "<group>"; };
+		53769D6B1B558CB5003CEB8D /* Amin.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Amin.m4a; sourceTree = "<group>"; };
+		53769D6C1B558CB5003CEB8D /* A.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = A.m4a; sourceTree = "<group>"; };
+		53769D761B558DA1003CEB8D /* ChordSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordSoundsViewController.swift; sourceTree = "<group>"; };
 		5398AA3D1B45B41D00DD259B /* NoteGuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGuessingGameTests.swift; sourceTree = "<group>"; };
 		5398AA3E1B45B41D00DD259B /* FingerPositionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPositionTests.swift; sourceTree = "<group>"; };
 		5398AA3F1B45B41D00DD259B /* ScaleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTests.swift; sourceTree = "<group>"; };
@@ -111,6 +133,16 @@
 		530A4F491B45B1EE003DDCE3 /* GuitarShapes */ = {
 			isa = PBXGroup;
 			children = (
+				53769D641B558CB5003CEB8D /* F.m4a */,
+				53769D651B558CB5003CEB8D /* Emin.m4a */,
+				53769D661B558CB5003CEB8D /* E.m4a */,
+				53769D671B558CB5003CEB8D /* G.m4a */,
+				53769D681B558CB5003CEB8D /* Dmin.m4a */,
+				53769D691B558CB5003CEB8D /* D.m4a */,
+				53769D6A1B558CB5003CEB8D /* C.m4a */,
+				53769D6B1B558CB5003CEB8D /* Amin.m4a */,
+				53769D6C1B558CB5003CEB8D /* A.m4a */,
+				53769D621B557E6B003CEB8D /* test.m4a */,
 				534EBC6E1B45B7F800C7C45C /* Views */,
 				534EBC671B45B79400C7C45C /* Controllers */,
 				534EBC641B45B76300C7C45C /* Helpers */,
@@ -164,6 +196,7 @@
 			children = (
 				534EBC681B45B7EA00C7C45C /* NotesViewController.swift */,
 				534EBC691B45B7EA00C7C45C /* ScalesViewController.swift */,
+				53769D761B558DA1003CEB8D /* ChordSoundsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,9 +305,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53769D731B558CB5003CEB8D /* C.m4a in Resources */,
+				53769D6D1B558CB5003CEB8D /* F.m4a in Resources */,
+				53769D751B558CB5003CEB8D /* A.m4a in Resources */,
+				53769D631B557E6B003CEB8D /* test.m4a in Resources */,
 				530A4F521B45B1EE003DDCE3 /* Main.storyboard in Resources */,
+				53769D6F1B558CB5003CEB8D /* E.m4a in Resources */,
+				53769D741B558CB5003CEB8D /* Amin.m4a in Resources */,
+				53769D701B558CB5003CEB8D /* G.m4a in Resources */,
 				530A4F571B45B1EE003DDCE3 /* LaunchScreen.xib in Resources */,
 				530A4F541B45B1EE003DDCE3 /* Images.xcassets in Resources */,
+				53769D6E1B558CB5003CEB8D /* Emin.m4a in Resources */,
+				53769D711B558CB5003CEB8D /* Dmin.m4a in Resources */,
+				53769D721B558CB5003CEB8D /* D.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				534EBC5E1B45B72000C7C45C /* NoteGuessingGame.swift in Sources */,
+				53769D771B558DA1003CEB8D /* ChordSoundsViewController.swift in Sources */,
 				530A4F4D1B45B1EE003DDCE3 /* AppDelegate.swift in Sources */,
 				534EBC741B45B81300C7C45C /* GuitarShapeDiagramUIView.swift in Sources */,
 				534EBC661B45B78500C7C45C /* ArrayExtensions.swift in Sources */,

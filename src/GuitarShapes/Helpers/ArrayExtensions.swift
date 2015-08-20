@@ -39,6 +39,15 @@ extension Array {
         return nil
     }
     
+
+    func take(var elementCount: Int) -> Array {
+        if (elementCount > count) {
+            elementCount = count
+        }
+        return Array(self[0..<elementCount])
+    }
+    
+    
     func shuffled() -> [T] {
         var list = self
         for i in 0..<(list.count - 1) {

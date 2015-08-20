@@ -3,7 +3,7 @@ import UIKit
 class NotesViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var fingerPosition: FingerPosition!
-    var game:NotesGuessingGame = NotesGuessingGame()
+    var game = NotesGuessingGame()
     
     @IBOutlet weak var diagram: GuitarShapeDiagramUIView!
     
@@ -40,7 +40,13 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
             diagram.setNeedsDisplay()
         }
         else {
-            //TODO: display results of game
+            var alert = UIAlertView()
+            alert.title = game.result()
+            alert.addButtonWithTitle("Replay")
+            alert.show()
+            game = NotesGuessingGame()
+            diagram.setPosition(game.currentPosition())
+            diagram.setNeedsDisplay()
         }
     }
     

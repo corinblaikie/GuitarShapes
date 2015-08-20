@@ -1,12 +1,14 @@
 import Foundation
+import AVFoundation
 
 class NotesGuessingGame {
     private var positionsNotAsked:[FingerPosition] = []
     private var positionsAsked:[FingerPosition] = []
     private var notesGuessed:[String] = []
+    private var length = 12
     
     init() {
-        positionsNotAsked = createFingerPositions().shuffled()
+        positionsNotAsked = createFingerPositions().shuffled().take(self.length)
     }
     
     func currentPosition() -> FingerPosition {
@@ -40,6 +42,20 @@ class NotesGuessingGame {
     
     func questionsAnsweredCount() -> Int {
         return notesGuessed.count
+    }
+    
+    func questionsAnsweredCorrectlyCount() -> Int {
+        var correct = 0
+        for (index, guess) in enumerate(notesGuessed) {
+            if (guess == positionsAsked[index].note) {
+                correct++;
+            }
+        }
+        return correct
+    }
+    
+    func result() -> String {
+        return "\(questionsAnsweredCorrectlyCount()) / \(questionsAnsweredCount()) correct answers"
     }
     
     private func createFingerPositions() -> [FingerPosition] {
