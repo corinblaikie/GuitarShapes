@@ -14,8 +14,8 @@ class Scale {
     
     func notes() -> String {
         // returns positions in scale as a list of notes e.g. C, D, E, F, G, A, B, C
-        var notes = self.positions().map({ (position: FingerPosition) -> String in position.note })
-        return ", ".join(notes)
+        let notes = self.positions().map({ (position: FingerPosition) -> String in position.note })
+        return notes.joinWithSeparator(", ")
     }
 }
 

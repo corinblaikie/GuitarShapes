@@ -16,8 +16,8 @@ class ScalesViewController : UIViewController {
         refresh()
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     
@@ -30,7 +30,7 @@ class ScalesViewController : UIViewController {
     
     func refresh() {
         if (shuffledScales.isEmpty) {
-            shuffledScales = scales.shuffled()
+            shuffledScales = scales.shuffle()
         }
         
         scale = shuffledScales.removeLast()

@@ -7,13 +7,17 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var diagram: GuitarShapeDiagramUIView!
     
+    @IBOutlet var buttons: UICollectionView!
+    
     override func viewDidLoad() {
-        diagram.setPosition(game.currentPosition())
-        diagram.showLabels = false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func viewDidAppear(animated: Bool) {
+        reset()
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -21,15 +25,15 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier(NoteCell.id, forIndexPath: indexPath) as! NoteCell
-        var note = game.getNote(indexPath.row)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NoteCell.id, forIndexPath: indexPath) as! NoteCell
+        let note = game.getNote(indexPath.row)
         cell.setContent(note)
         return cell
     }
     
     @IBAction func onGuess(sender: UIButton) {
         
-        var note = sender.titleLabel!.text!
+        let note = sender.titleLabel!.text!
         game.guess(note)
         
         displayGuessFeedback(sender)
@@ -40,29 +44,64 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
             diagram.setNeedsDisplay()
         }
         else {
-            var alert = UIAlertView()
-            alert.title = game.result()
-            alert.addButtonWithTitle("Replay")
-            alert.show()
-            game = NotesGuessingGame()
-            diagram.setPosition(game.currentPosition())
+            
+            if (game.questionsAnsweredCorrectlyCount() != game.questionsAnsweredCount()) {
+                diagram.setPositions(game.incorrectPositions(), color: UIColor.redColor(), textColor: UIColor.whiteColor())
+            }
+            else {
+                diagram.setPositions(game.correctPositions(), color: UIColor.greenColor())
+            }
+            diagram.showLabels = true
             diagram.setNeedsDisplay()
+            buttons.hidden = true
+            
+            
+            
+            //alert.show()
         }
+    }
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        if (game.isOver())
+        {
+            reset()
+        }
+    }
+    
+    private func reset() {
+        game = NotesGuessingGame()
+        diagram.setPosition(game.currentPosition())
+        diagram.showLabels = false
+        diagram.setNeedsDisplay()
+        buttons.hidden = false
     }
     
     func displayGuessFeedback(sender: UIButton) {
         
-        var currentColor = sender.backgroundColor
+        let currentColor = sender.backgroundColor
         
         // Highlight button green/red based on if answer is correct
         if (game.isLastGuessCorrect()) {
             sender.backgroundColor = UIColor.greenColor()
         } else {
             sender.backgroundColor = UIColor.redColor()
+        
+        
+            let animation = CABasicAnimation(keyPath: "position")
+            animation.duration = 0.05
+            animation.repeatCount = 8
+            animation.autoreverses = true
+        
+            CGPointMake(sender.center.x - 20, sender.center.y)
+        
+            animation.fromValue = NSValue(CGPoint: CGPointMake(sender.center.x - 2.5, sender.center.y))
+            animation.toValue = NSValue(CGPoint: CGPointMake(sender.center.x + 2.5, sender.center.y))
+        
+            sender.layer.addAnimation(animation, forKey: "position")
         }
         
         // Fade back to current color
-        UIView.animateWithDuration(1, animations:
+        UIView.animateWithDuration(0.8, animations:
             { () -> Void in sender.backgroundColor = currentColor})
     }
 }

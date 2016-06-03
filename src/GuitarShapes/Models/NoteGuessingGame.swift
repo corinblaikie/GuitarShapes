@@ -5,10 +5,15 @@ class NotesGuessingGame {
     private var positionsNotAsked:[FingerPosition] = []
     private var positionsAsked:[FingerPosition] = []
     private var notesGuessed:[String] = []
-    private var length = 12
+    private var settings:Settings = Settings.instance
+    let totalTurns = 12
     
     init() {
-        positionsNotAsked = createFingerPositions().shuffled().take(self.length)
+        positionsNotAsked = Array(createFingerPositions().shuffle().prefix(self.totalTurns))
+    }
+    
+    func turn() -> Int {
+        return positionsAsked.count + 1
     }
     
     func currentPosition() -> FingerPosition {
@@ -46,12 +51,32 @@ class NotesGuessingGame {
     
     func questionsAnsweredCorrectlyCount() -> Int {
         var correct = 0
-        for (index, guess) in enumerate(notesGuessed) {
+        for (index, guess) in notesGuessed.enumerate() {
             if (guess == positionsAsked[index].note) {
-                correct++;
+                correct += 1;
             }
         }
         return correct
+    }
+    
+    func correctPositions() -> [FingerPosition] {
+        var result = [FingerPosition]()
+        for (index, guess) in notesGuessed.enumerate() {
+            if (guess == positionsAsked[index].note) {
+                result.append(positionsAsked[index])
+            }
+        }
+        return result
+    }
+    
+    func incorrectPositions() -> [FingerPosition] {
+        var result = [FingerPosition]()
+        for (index, guess) in notesGuessed.enumerate() {
+            if (guess != positionsAsked[index].note) {
+                result.append(positionsAsked[index])
+            }
+        }
+        return result
     }
     
     func result() -> String {
@@ -61,12 +86,16 @@ class NotesGuessingGame {
     private func createFingerPositions() -> [FingerPosition] {
         var result:[FingerPosition] = []
         
-        var guitarStringCount = 6
-        var fretLimit = 3 // only asking notes in the few fret
+        let guitarStringCount = 6
+        let fretLimit = settings.getMaxFret() - 1
         
         for guitarStringIndex in 0...(guitarStringCount - 1) {
+            
             for fretIndex in -1...fretLimit {
-                result.append(FingerPosition(stringIndex:guitarStringIndex, fretIndex: fretIndex))
+                let position = FingerPosition(stringIndex:guitarStringIndex, fretIndex: fretIndex)
+                if (settings.isEnabled(position.stringIndex, fretIndex: position.fretIndex)) {
+                    result.append(position)
+                }
             }
         }
         

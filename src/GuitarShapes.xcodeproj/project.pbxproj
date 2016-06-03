@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5304F2251B86136000DBA4D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2241B86136000DBA4D4 /* SettingsViewController.swift */; };
+		5304F2271B86152F00DBA4D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2261B86152F00DBA4D4 /* Settings.swift */; };
+		5304F2281B86257600DBA4D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2261B86152F00DBA4D4 /* Settings.swift */; };
 		530A4F4D1B45B1EE003DDCE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530A4F4C1B45B1EE003DDCE3 /* AppDelegate.swift */; };
 		530A4F521B45B1EE003DDCE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 530A4F501B45B1EE003DDCE3 /* Main.storyboard */; };
 		530A4F541B45B1EE003DDCE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530A4F531B45B1EE003DDCE3 /* Images.xcassets */; };
@@ -33,6 +36,7 @@
 		5398AA401B45B41D00DD259B /* NoteGuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3D1B45B41D00DD259B /* NoteGuessingGameTests.swift */; };
 		5398AA411B45B41D00DD259B /* FingerPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3E1B45B41D00DD259B /* FingerPositionTests.swift */; };
 		5398AA421B45B41D00DD259B /* ScaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3F1B45B41D00DD259B /* ScaleTests.swift */; };
+		53C6C0C11C60064D00565A5C /* FretsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C0C01C60064D00565A5C /* FretsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5304F2241B86136000DBA4D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5304F2261B86152F00DBA4D4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		530A4F471B45B1EE003DDCE3 /* GuitarShapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarShapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		530A4F4B1B45B1EE003DDCE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		530A4F4C1B45B1EE003DDCE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 		5398AA3D1B45B41D00DD259B /* NoteGuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGuessingGameTests.swift; sourceTree = "<group>"; };
 		5398AA3E1B45B41D00DD259B /* FingerPositionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPositionTests.swift; sourceTree = "<group>"; };
 		5398AA3F1B45B41D00DD259B /* ScaleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTests.swift; sourceTree = "<group>"; };
+		53C6C0C01C60064D00565A5C /* FretsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FretsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +171,8 @@
 			children = (
 				534EBC681B45B7EA00C7C45C /* NotesViewController.swift */,
 				534EBC691B45B7EA00C7C45C /* ScalesViewController.swift */,
+				5304F2241B86136000DBA4D4 /* SettingsViewController.swift */,
+				53C6C0C01C60064D00565A5C /* FretsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 				534EBC571B45B72000C7C45C /* GuitarRenderingSettings.swift */,
 				534EBC581B45B72000C7C45C /* Guitar.swift */,
 				534EBC591B45B72000C7C45C /* NoteGuessingGame.swift */,
+				5304F2261B86152F00DBA4D4 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,11 +246,14 @@
 		530A4F3F1B45B1EE003DDCE3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Corin Blaikie";
 				TargetAttributes = {
 					530A4F461B45B1EE003DDCE3 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 7CLH5AZ2R5;
 					};
 					530A4F5B1B45B1EE003DDCE3 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -300,7 +313,10 @@
 				534EBC751B45B81300C7C45C /* GuitarLayer.swift in Sources */,
 				534EBC6C1B45B7EA00C7C45C /* ScalesViewController.swift in Sources */,
 				534EBC771B45B81300C7C45C /* ScaleLayer.swift in Sources */,
+				5304F2251B86136000DBA4D4 /* SettingsViewController.swift in Sources */,
+				53C6C0C11C60064D00565A5C /* FretsViewController.swift in Sources */,
 				534EBC6B1B45B7EA00C7C45C /* NotesViewController.swift in Sources */,
+				5304F2271B86152F00DBA4D4 /* Settings.swift in Sources */,
 				534EBC761B45B81300C7C45C /* PositionLayer.swift in Sources */,
 				534EBC5A1B45B72000C7C45C /* FingerPosition.swift in Sources */,
 				534EBC781B45B81300C7C45C /* NoteCell.swift in Sources */,
@@ -317,6 +333,7 @@
 				5398AA421B45B41D00DD259B /* ScaleTests.swift in Sources */,
 				5398AA411B45B41D00DD259B /* FingerPositionTests.swift in Sources */,
 				534EBC611B45B74F00C7C45C /* GuitarRenderingSettings.swift in Sources */,
+				5304F2281B86257600DBA4D4 /* Settings.swift in Sources */,
 				534EBC601B45B74F00C7C45C /* Scale.swift in Sources */,
 				534EBC621B45B74F00C7C45C /* Guitar.swift in Sources */,
 				534EBC631B45B74F00C7C45C /* NoteGuessingGame.swift in Sources */,
@@ -372,10 +389,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -391,7 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -416,7 +434,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -429,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -440,9 +458,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GuitarShapes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "corin.blaikie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -450,9 +473,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GuitarShapes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "corin.blaikie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -460,16 +488,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GuitarShapesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "corin.blaikie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarShapes.app/GuitarShapes";
 			};
@@ -479,12 +504,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = GuitarShapesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "corin.blaikie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarShapes.app/GuitarShapes";
 			};

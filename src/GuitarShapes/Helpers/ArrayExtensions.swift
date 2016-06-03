@@ -2,35 +2,14 @@ import Foundation
 
 extension Array {
     
-    func randomItem() -> T {
+    func randomItem() -> Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
     
-    func first(fn: (T) -> Bool) -> T? {
-        for x in self {
-            let t = x as T
-            if fn(t) {
-                return t
-            }
-        }
-        return nil
-    }
-    
-    func first(fn: (T, Int) -> Bool) -> T? {
-        var i = 0
-        for x in self {
-            let t = x as T
-            if fn(t, i++) {
-                return t
-            }
-        }
-        return nil
-    }
-    
     func indexOf<T : Equatable>(value: T) -> Int? {
         
-        for (index, element) in enumerate(self) {
+        for (index, element) in self.enumerate() {
             if (element as! T == value) {
                 return index
             }
@@ -38,22 +17,28 @@ extension Array {
         
         return nil
     }
-    
+}
 
-    func take(var elementCount: Int) -> Array {
-        if (elementCount > count) {
-            elementCount = count
-        }
-        return Array(self[0..<elementCount])
-    }
-    
-    
-    func shuffled() -> [T] {
-        var list = self
-        for i in 0..<(list.count - 1) {
-            let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
-            swap(&list[i], &list[j])
-        }
+
+extension CollectionType {
+    /// Return a copy of `self` with its elements shuffled
+    func shuffle() -> [Generator.Element] {
+        var list = Array(self)
+        list.shuffleInPlace()
         return list
+    }
+}
+
+extension MutableCollectionType where Index == Int {
+    /// Shuffle the elements of `self` in-place.
+    mutating func shuffleInPlace() {
+        // empty and single-element collections don't shuffle
+        if count < 2 { return }
+        
+        for i in 0..<count - 1 {
+            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            guard i != j else { continue }
+            swap(&self[i], &self[j])
+        }
     }
 }

@@ -14,12 +14,12 @@ class GuitarRenderingSettings {
     
     let highlightDiameter:CGFloat
     
-    init(stringCount:Int = 5, fretCount:Int = 20, spaceBetweenStrings:CGFloat = 40.0, spaceBetweenFrets:CGFloat = 120.0) {
-        self.stringCount = stringCount
-        self.fretCount =  fretCount
-        self.spaceBetweenStrings = spaceBetweenStrings
-        self.spaceBetweenFrets = spaceBetweenFrets
-        self.markerDiameter = spaceBetweenStrings / 2
-        self.highlightDiameter = spaceBetweenStrings * 0.75
+    init(scale:CGFloat = 0.4) {
+        self.stringCount = 5
+        self.fretCount =  20
+        self.spaceBetweenStrings = 40 * scale
+        self.spaceBetweenFrets = 100 * scale
+        self.markerDiameter = self.spaceBetweenStrings / 2
+        self.highlightDiameter = self.spaceBetweenStrings * 0.75
     }
 }

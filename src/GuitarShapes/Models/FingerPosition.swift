@@ -16,19 +16,19 @@ public class FingerPosition: Equatable
     
     static func fromArray(positions:[(Int, Int)]) -> [FingerPosition] {
         // maps from an array Tuples to FingerPositions
-        return map (positions) { (p) in FingerPosition(stringIndex: p.0, fretIndex: p.1) }
+        return positions.map  { (p) in FingerPosition(stringIndex: p.0, fretIndex: p.1) }
     }
     
      static func calculateNote(stringIndex: Int, fretIndex: Int) -> String {
-        var startingNote = Guitar.strings[stringIndex]
-        var startingNoteSemitoneIndex = Guitar.semitones.indexOf(startingNote)
-        var semitonesRange = fretIndex % Guitar.semitoneCount + 1  //+1 is to account for index starting at the first fret rather than the open string
+        let startingNote = Guitar.strings[stringIndex]
+        let startingNoteSemitoneIndex = Guitar.semitones.indexOf(startingNote)
+        let semitonesRange = fretIndex % Guitar.semitoneCount + 1  //+1 is to account for index starting at the first fret rather than the open string
         
         if (startingNoteSemitoneIndex! + semitonesRange >= Guitar.semitoneCount) {
-            var resultIndex = startingNoteSemitoneIndex! + semitonesRange - Guitar.semitoneCount
+            let resultIndex = startingNoteSemitoneIndex! + semitonesRange - Guitar.semitoneCount
             return Guitar.semitones[resultIndex]
         } else {
-            var resultIndex = startingNoteSemitoneIndex! + semitonesRange
+            let resultIndex = startingNoteSemitoneIndex! + semitonesRange
             return Guitar.semitones[resultIndex]
         }
     }

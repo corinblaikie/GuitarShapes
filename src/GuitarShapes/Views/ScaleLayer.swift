@@ -2,6 +2,11 @@ import UIKit
 
 class ScaleLayer : CALayer {
     
+    static var defaultColor = PositionLayer.defaultColor
+    static var defaultTextColor = PositionLayer.defaultTextColor
+    
+    var renderingSettings = GuitarRenderingSettings()
+    
     var showLabels:Bool = true {
         didSet {
             for layer in self.sublayers as! [PositionLayer] {
@@ -12,36 +17,65 @@ class ScaleLayer : CALayer {
         }
     }
     
-    func setPositions(positions:[FingerPosition]) {
+    func setPositions(positions:[FingerPosition], color: UIColor, textColor: UIColor) {
         
         self.sublayers?.removeAll()
         
-        for (index, position) in enumerate(positions) {
-            var layer = PositionLayer(position: getPoint(position), note: position.note)
+        for (index, position) in positions.enumerate() {
+            let layer = PositionLayer(position: getPoint(position), note: position.note, color: color, textColor: textColor)
             layer.showLabel = showLabels
-            var fader = CABasicAnimation(keyPath: "opacity")
-            fader.duration = 1.0
-            fader.beginTime = CACurrentMediaTime() + CFTimeInterval(Float(index))
-            fader.fromValue = 0.0
-            fader.toValue = 1.0
-            fader.removedOnCompletion = false
-            fader.fillMode = kCAFillModeForwards
-            layer.addAnimation(fader, forKey:"Fade")
+            layer.allowsEdgeAntialiasing = true
+            layer.transform = CATransform3DMakeScale(0.25, 0.25, 1)
+            
+            let grow = CABasicAnimation(keyPath: "transform.scale")
+            //grow.duration = 0.25
+            //grow.beginTime = CACurrentMediaTime() + CFTimeInterval(Float(index))
+            grow.fromValue = 0.25
+            grow.toValue = 1.0
+            //grow.removedOnCompletion = false
+            //grow.fillMode = kCAFillModeForwards
+            //
+                
+            let group = CAAnimationGroup()
+            group.duration = 0.35
+            group.animations = [grow]
+            group.removedOnCompletion = false
+            group.fillMode = kCAFillModeForwards
+            group.autoreverses = true
+            group.beginTime = CACurrentMediaTime() + CFTimeInterval(Float(index) * 0.35)
+            grow.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            layer.addAnimation(group, forKey:"some shite")
+            
+            
             self.addSublayer(layer)
             layer.setNeedsDisplay()
         }
         
     }
     
+    func getFret(y:CGFloat) -> Int {
+        
+        let initY = CGFloat(30.0)
+        
+        let fretIndex = (y - initY) / renderingSettings.spaceBetweenFrets
+        
+        NSLog("\(fretIndex) = (\(y) - \(initY)) / \(renderingSettings.spaceBetweenFrets) ")
+        NSLog("fretIndex = (y - initY) / renderingSettings.spaceBetweenFrets")
+        
+        if (fretIndex < 0) {
+            return -1
+        }
+        
+        return Int(floor(fretIndex))
+    }
+    
     func getPoint(position:FingerPosition) -> CGPoint {
         
-        var renderingSettings = GuitarRenderingSettings()
-        
-        
+
         let initY = CGFloat(30.0) + renderingSettings.highlightDiameter
         let initX = (self.bounds.width / 2) - ((CGFloat(renderingSettings.stringCount) * renderingSettings.spaceBetweenStrings)/2) + renderingSettings.highlightDiameter
         
-        var x = CGFloat(position.stringIndex) * renderingSettings.spaceBetweenStrings - renderingSettings.highlightDiameter
+        let x = CGFloat(position.stringIndex) * renderingSettings.spaceBetweenStrings - renderingSettings.highlightDiameter
         var y = CGFloat(position.fretIndex) * renderingSettings.spaceBetweenFrets + (renderingSettings.spaceBetweenFrets / 2.0) - renderingSettings.highlightDiameter
         
         if (y <= 0) {
