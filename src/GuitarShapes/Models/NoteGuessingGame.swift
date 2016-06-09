@@ -2,14 +2,31 @@ import Foundation
 import AVFoundation
 
 class NotesGuessingGame {
+    
     private var positionsNotAsked:[FingerPosition] = []
     private var positionsAsked:[FingerPosition] = []
     private var notesGuessed:[String] = []
     private var settings:Settings = Settings.instance
-    let totalTurns = 12
+    private var history:NoteGuessingGameHistory
     
-    init() {
-        positionsNotAsked = Array(createFingerPositions().shuffle().prefix(self.totalTurns))
+    
+    let lowScoringTurns = 6
+    let otherTurns = 6
+    var totalTurns = 12
+    
+    init(history:NoteGuessingGameHistory) {
+        self.history = history
+        
+        let lowScoringPositions = history.GetPositionsByLowestScore()
+                                         .shuffle()
+                                         .prefix(lowScoringTurns)
+        
+        let randomPositions = self.createFingerPositions()
+                                  .shuffle()
+                                  .filter({ !lowScoringPositions.contains($0) })
+                                  .prefix(otherTurns)
+        
+        positionsNotAsked = Array((lowScoringPositions + randomPositions))
     }
     
     func turn() -> Int {
@@ -22,7 +39,10 @@ class NotesGuessingGame {
     
     func guess(note: String) {
         notesGuessed.append(note)
-        positionsAsked.append(positionsNotAsked.removeAtIndex(0))
+        let position = positionsNotAsked.removeAtIndex(0)
+        positionsAsked.append(position)
+        let answer = Answer(positionAsked: position, correct: isLastGuessCorrect())
+        history.Add(answer)
     }
     
     func isOver() -> Bool {
@@ -103,3 +123,7 @@ class NotesGuessingGame {
     }
 
 }
+
+
+
+

@@ -3,7 +3,8 @@ import UIKit
 class NotesViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var fingerPosition: FingerPosition!
-    var game = NotesGuessingGame()
+    var history = NoteGuessingGameHistory()
+    var game:NotesGuessingGame! = nil
     
     @IBOutlet weak var diagram: GuitarShapeDiagramUIView!
     
@@ -69,7 +70,7 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
     }
     
     private func reset() {
-        game = NotesGuessingGame()
+        game = NotesGuessingGame(history: history)
         diagram.setPosition(game.currentPosition())
         diagram.showLabels = false
         diagram.setNeedsDisplay()

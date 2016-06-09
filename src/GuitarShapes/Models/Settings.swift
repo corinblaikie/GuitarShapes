@@ -1,11 +1,3 @@
-//
-//  Settings.swift
-//  GuitarShapes
-//
-//  Created by Corin Blaikie on 20/08/2015.
-//  Copyright (c) 2015 Corin Blaikie. All rights reserved.
-//
-
 import Foundation
 
 class Settings {
