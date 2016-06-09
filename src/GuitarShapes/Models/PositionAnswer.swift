@@ -1,6 +1,6 @@
 import Foundation
 
-class Answer {
+class PositionAnswer {
     let positionAsked:FingerPosition
     
     let correct:Bool

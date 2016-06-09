@@ -41,7 +41,7 @@ class NotesGuessingGame {
         notesGuessed.append(note)
         let position = positionsNotAsked.removeAtIndex(0)
         positionsAsked.append(position)
-        let answer = Answer(positionAsked: position, correct: isLastGuessCorrect())
+        let answer = PositionAnswer(positionAsked: position, correct: isLastGuessCorrect())
         history.Add(answer)
     }
     

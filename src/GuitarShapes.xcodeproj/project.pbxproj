@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		53018E7C1D06BEC300CD5A8D /* NoteGuessingGameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7B1D06BEC300CD5A8D /* NoteGuessingGameHistory.swift */; };
-		53018E7E1D06BEDE00CD5A8D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7D1D06BEDE00CD5A8D /* Answer.swift */; };
+		53018E7E1D06BEDE00CD5A8D /* PositionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */; };
 		53018E801D06BF0200CD5A8D /* FingerPositionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */; };
 		53018E811D06C06F00CD5A8D /* NoteGuessingGameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7B1D06BEC300CD5A8D /* NoteGuessingGameHistory.swift */; };
-		53018E821D06C07800CD5A8D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7D1D06BEDE00CD5A8D /* Answer.swift */; };
+		53018E821D06C07800CD5A8D /* PositionAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */; };
 		53018E831D06C08D00CD5A8D /* FingerPositionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */; };
+		53018E851D09667800CD5A8D /* GuitarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E841D09667800CD5A8D /* GuitarString.swift */; };
+		53018E861D09668E00CD5A8D /* GuitarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E841D09667800CD5A8D /* GuitarString.swift */; };
 		5304F2251B86136000DBA4D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2241B86136000DBA4D4 /* SettingsViewController.swift */; };
 		5304F2271B86152F00DBA4D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2261B86152F00DBA4D4 /* Settings.swift */; };
 		5304F2281B86257600DBA4D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2261B86152F00DBA4D4 /* Settings.swift */; };
@@ -58,8 +60,9 @@
 
 /* Begin PBXFileReference section */
 		53018E7B1D06BEC300CD5A8D /* NoteGuessingGameHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGuessingGameHistory.swift; sourceTree = "<group>"; };
-		53018E7D1D06BEDE00CD5A8D /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionAnswer.swift; sourceTree = "<group>"; };
 		53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPositionStats.swift; sourceTree = "<group>"; };
+		53018E841D09667800CD5A8D /* GuitarString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarString.swift; sourceTree = "<group>"; };
 		5304F2241B86136000DBA4D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5304F2261B86152F00DBA4D4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		530A4F471B45B1EE003DDCE3 /* GuitarShapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarShapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,8 +214,9 @@
 				534EBC591B45B72000C7C45C /* NoteGuessingGame.swift */,
 				5304F2261B86152F00DBA4D4 /* Settings.swift */,
 				53018E7B1D06BEC300CD5A8D /* NoteGuessingGameHistory.swift */,
-				53018E7D1D06BEDE00CD5A8D /* Answer.swift */,
+				53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */,
 				53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */,
+				53018E841D09667800CD5A8D /* GuitarString.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,7 +272,6 @@
 				TargetAttributes = {
 					530A4F461B45B1EE003DDCE3 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 7CLH5AZ2R5;
 					};
 					530A4F5B1B45B1EE003DDCE3 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -322,6 +325,7 @@
 			files = (
 				534EBC5E1B45B72000C7C45C /* NoteGuessingGame.swift in Sources */,
 				530A4F4D1B45B1EE003DDCE3 /* AppDelegate.swift in Sources */,
+				53018E851D09667800CD5A8D /* GuitarString.swift in Sources */,
 				534EBC741B45B81300C7C45C /* GuitarShapeDiagramUIView.swift in Sources */,
 				534EBC661B45B78500C7C45C /* ArrayExtensions.swift in Sources */,
 				534EBC5B1B45B72000C7C45C /* Scale.swift in Sources */,
@@ -334,7 +338,7 @@
 				5304F2271B86152F00DBA4D4 /* Settings.swift in Sources */,
 				534EBC761B45B81300C7C45C /* PositionLayer.swift in Sources */,
 				534EBC5A1B45B72000C7C45C /* FingerPosition.swift in Sources */,
-				53018E7E1D06BEDE00CD5A8D /* Answer.swift in Sources */,
+				53018E7E1D06BEDE00CD5A8D /* PositionAnswer.swift in Sources */,
 				53018E801D06BF0200CD5A8D /* FingerPositionStats.swift in Sources */,
 				534EBC781B45B81300C7C45C /* NoteCell.swift in Sources */,
 				53018E7C1D06BEC300CD5A8D /* NoteGuessingGameHistory.swift in Sources */,
@@ -355,9 +359,10 @@
 				534EBC611B45B74F00C7C45C /* GuitarRenderingSettings.swift in Sources */,
 				5304F2281B86257600DBA4D4 /* Settings.swift in Sources */,
 				535EC6111D01E8A00030A989 /* NoteGuessingGameHistoryTests.swift in Sources */,
-				53018E821D06C07800CD5A8D /* Answer.swift in Sources */,
+				53018E821D06C07800CD5A8D /* PositionAnswer.swift in Sources */,
 				534EBC601B45B74F00C7C45C /* Scale.swift in Sources */,
 				534EBC621B45B74F00C7C45C /* Guitar.swift in Sources */,
+				53018E861D09668E00CD5A8D /* GuitarString.swift in Sources */,
 				534EBC631B45B74F00C7C45C /* NoteGuessingGame.swift in Sources */,
 				534EBC791B45B88B00C7C45C /* ArrayExtensions.swift in Sources */,
 				534EBC5F1B45B74F00C7C45C /* FingerPosition.swift in Sources */,
