@@ -35,7 +35,7 @@ class ScalesViewController : UIViewController {
         
         scale = shuffledScales.removeLast()
         nameLabel.text = "\(self.scale.name)"
-        notesLabel.text = "(\(self.scale.notes()))"
+        notesLabel.text = "(\(self.scale.description()))"
         diagram.setPositions(self.scale.positions())
         diagram.setNeedsDisplay()
     }

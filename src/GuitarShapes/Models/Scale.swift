@@ -12,10 +12,15 @@ class Scale {
         return []
     }
     
-    func notes() -> String {
-        // returns positions in scale as a list of notes e.g. C, D, E, F, G, A, B, C
+    func description() -> String {
+        // returns positions in scale as string e.g. "C, D, E, F, G, A, B, C"
         let notes = self.positions().map({ (position: FingerPosition) -> String in position.note })
         return notes.joinWithSeparator(", ")
+    }
+    
+    func notes() -> [String] {
+        // returns positions in scale as a list of notes e.g. [C, D, E, F, G, A, B, C]
+        return self.positions().map({ (position: FingerPosition) -> String in position.note })
     }
 }
 
@@ -27,8 +32,8 @@ class CMajorScale : Scale {
     }
     
     override func positions() -> [FingerPosition] {
-        // C, D, E, F, G, A, B, C
-        return FingerPosition.fromArray([(1,2), (2,-1), (2,1), (2,2), (3,-1), (3,1), (4,-1), (4,0)])
+        // C, D, E, F, G, A, B
+        return FingerPosition.fromArray([(1,2), (2,-1), (2,1), (2,2), (3,-1), (3,1), (4,-1)])
     }
 }
 
@@ -40,11 +45,10 @@ class GMajorScale : Scale {
     }
     
     override func positions() -> [FingerPosition] {
-        // G, A, B, C, D, E, F#, G, A, B, C, D, E, F#
-        return FingerPosition.fromArray([(0,2), (1,-1), (1,1), (1,2), (2,-1), (2,1), (2,3), (3,-1), (3,1), (4,-1), (4,0), (4,2), (5,-1), (5,1), (5,2)])
+        // G, A, B, C, D, E, F#
+        return FingerPosition.fromArray([(0,2), (1,-1), (1,1), (1,2), (2,-1), (2,1), (2,3)])
     }
 }
-
 
 class DMajorScale : Scale {
     
@@ -54,8 +58,8 @@ class DMajorScale : Scale {
     }
     
     override func positions() -> [FingerPosition] {
-        // D, E, F♯, G, A, B, C♯, D
-        return FingerPosition.fromArray([(2,-1), (2,1), (2,3),  (3,-1), (3,1), (4,-1), (4,1),  (4,2)])
+        // D, E, F♯, G, A, B, C♯
+        return FingerPosition.fromArray([(2,-1), (2,1), (2,3),  (3,-1), (3,1), (4,-1), (4,1)])
     }
 }
 
@@ -67,8 +71,8 @@ class AMajorScale : Scale {
     }
     
     override func positions() -> [FingerPosition] {
-        // A, B, C#, D, E, F#, G#, A
-        return FingerPosition.fromArray([(1,-1), (1,1), (1,3), (2,-1), (2,1), (2,3), (3,0), (3,1)])
+        // A, B, C#, D, E, F#, G#
+        return FingerPosition.fromArray([(1,-1), (1,1), (1,3), (2,-1), (2,1), (2,3), (3,0)])
     }
 }
 
@@ -80,7 +84,7 @@ class EMajorScale : Scale {
     }
     
     override func positions() -> [FingerPosition] {
-        // E, F#, G#, A, B, C#, D#, E
-        return FingerPosition.fromArray([(0,-1), (0,1), (0,3), (1,-1), (1,1), (1,3), (2,0), (2,1)])
+        // E, F#, G#, A, B, C#, D#
+        return FingerPosition.fromArray([(0,-1), (0,1), (0,3), (1,-1), (1,1), (1,3), (2,0)])
     }
 }

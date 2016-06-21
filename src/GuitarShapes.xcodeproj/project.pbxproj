@@ -15,6 +15,8 @@
 		53018E831D06C08D00CD5A8D /* FingerPositionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */; };
 		53018E851D09667800CD5A8D /* GuitarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E841D09667800CD5A8D /* GuitarString.swift */; };
 		53018E861D09668E00CD5A8D /* GuitarString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E841D09667800CD5A8D /* GuitarString.swift */; };
+		53018E881D0F292900CD5A8D /* ScalesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E871D0F292900CD5A8D /* ScalesGameViewController.swift */; };
+		53018E891D0F292900CD5A8D /* ScalesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53018E871D0F292900CD5A8D /* ScalesGameViewController.swift */; };
 		5304F2251B86136000DBA4D4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2241B86136000DBA4D4 /* SettingsViewController.swift */; };
 		5304F2271B86152F00DBA4D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2261B86152F00DBA4D4 /* Settings.swift */; };
 		5304F2281B86257600DBA4D4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5304F2261B86152F00DBA4D4 /* Settings.swift */; };
@@ -42,10 +44,17 @@
 		534EBC781B45B81300C7C45C /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC731B45B81300C7C45C /* NoteCell.swift */; };
 		534EBC791B45B88B00C7C45C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC651B45B78500C7C45C /* ArrayExtensions.swift */; };
 		535EC6111D01E8A00030A989 /* NoteGuessingGameHistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EC6101D01E8A00030A989 /* NoteGuessingGameHistoryTests.swift */; };
+		538755B81D193BCA0090B76F /* ScaleNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538755B71D193BCA0090B76F /* ScaleNote.swift */; };
+		538755B91D193BD60090B76F /* ScaleNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538755B71D193BCA0090B76F /* ScaleNote.swift */; };
+		538755BB1D193C690090B76F /* ScalesGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538755BA1D193C690090B76F /* ScalesGameTests.swift */; };
 		5398AA401B45B41D00DD259B /* NoteGuessingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3D1B45B41D00DD259B /* NoteGuessingGameTests.swift */; };
 		5398AA411B45B41D00DD259B /* FingerPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3E1B45B41D00DD259B /* FingerPositionTests.swift */; };
 		5398AA421B45B41D00DD259B /* ScaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398AA3F1B45B41D00DD259B /* ScaleTests.swift */; };
 		53C6C0C11C60064D00565A5C /* FretsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C6C0C01C60064D00565A5C /* FretsViewController.swift */; };
+		53FCF4D21D100059007DEE1A /* ScalesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCF4D11D100059007DEE1A /* ScalesGame.swift */; };
+		53FCF4D31D1001B9007DEE1A /* ScalesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCF4D11D100059007DEE1A /* ScalesGame.swift */; };
+		53FCF4D41D10023B007DEE1A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC731B45B81300C7C45C /* NoteCell.swift */; };
+		53FCF4D61D12A8FD007DEE1A /* ScaleNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCF4D51D12A8FD007DEE1A /* ScaleNoteTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +72,7 @@
 		53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionAnswer.swift; sourceTree = "<group>"; };
 		53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPositionStats.swift; sourceTree = "<group>"; };
 		53018E841D09667800CD5A8D /* GuitarString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarString.swift; sourceTree = "<group>"; };
+		53018E871D0F292900CD5A8D /* ScalesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalesGameViewController.swift; sourceTree = "<group>"; };
 		5304F2241B86136000DBA4D4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5304F2261B86152F00DBA4D4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		530A4F471B45B1EE003DDCE3 /* GuitarShapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarShapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,10 +97,14 @@
 		534EBC721B45B81300C7C45C /* ScaleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleLayer.swift; sourceTree = "<group>"; };
 		534EBC731B45B81300C7C45C /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		535EC6101D01E8A00030A989 /* NoteGuessingGameHistoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGuessingGameHistoryTests.swift; sourceTree = "<group>"; };
+		538755B71D193BCA0090B76F /* ScaleNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleNote.swift; sourceTree = "<group>"; };
+		538755BA1D193C690090B76F /* ScalesGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalesGameTests.swift; sourceTree = "<group>"; };
 		5398AA3D1B45B41D00DD259B /* NoteGuessingGameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGuessingGameTests.swift; sourceTree = "<group>"; };
 		5398AA3E1B45B41D00DD259B /* FingerPositionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerPositionTests.swift; sourceTree = "<group>"; };
 		5398AA3F1B45B41D00DD259B /* ScaleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleTests.swift; sourceTree = "<group>"; };
 		53C6C0C01C60064D00565A5C /* FretsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FretsViewController.swift; sourceTree = "<group>"; };
+		53FCF4D11D100059007DEE1A /* ScalesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalesGame.swift; sourceTree = "<group>"; };
+		53FCF4D51D12A8FD007DEE1A /* ScaleNoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleNoteTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +175,8 @@
 				5398AA3F1B45B41D00DD259B /* ScaleTests.swift */,
 				535EC6101D01E8A00030A989 /* NoteGuessingGameHistoryTests.swift */,
 				530A4F601B45B1EE003DDCE3 /* Supporting Files */,
+				53FCF4D51D12A8FD007DEE1A /* ScaleNoteTests.swift */,
+				538755BA1D193C690090B76F /* ScalesGameTests.swift */,
 			);
 			path = GuitarShapesTests;
 			sourceTree = "<group>";
@@ -188,6 +204,7 @@
 				534EBC691B45B7EA00C7C45C /* ScalesViewController.swift */,
 				5304F2241B86136000DBA4D4 /* SettingsViewController.swift */,
 				53C6C0C01C60064D00565A5C /* FretsViewController.swift */,
+				53018E871D0F292900CD5A8D /* ScalesGameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +234,8 @@
 				53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */,
 				53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */,
 				53018E841D09667800CD5A8D /* GuitarString.swift */,
+				53FCF4D11D100059007DEE1A /* ScalesGame.swift */,
+				538755B71D193BCA0090B76F /* ScaleNote.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538755B81D193BCA0090B76F /* ScaleNote.swift in Sources */,
+				53FCF4D21D100059007DEE1A /* ScalesGame.swift in Sources */,
 				534EBC5E1B45B72000C7C45C /* NoteGuessingGame.swift in Sources */,
 				530A4F4D1B45B1EE003DDCE3 /* AppDelegate.swift in Sources */,
 				53018E851D09667800CD5A8D /* GuitarString.swift in Sources */,
@@ -336,6 +357,7 @@
 				53C6C0C11C60064D00565A5C /* FretsViewController.swift in Sources */,
 				534EBC6B1B45B7EA00C7C45C /* NotesViewController.swift in Sources */,
 				5304F2271B86152F00DBA4D4 /* Settings.swift in Sources */,
+				53018E881D0F292900CD5A8D /* ScalesGameViewController.swift in Sources */,
 				534EBC761B45B81300C7C45C /* PositionLayer.swift in Sources */,
 				534EBC5A1B45B72000C7C45C /* FingerPosition.swift in Sources */,
 				53018E7E1D06BEDE00CD5A8D /* PositionAnswer.swift in Sources */,
@@ -351,10 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538755B91D193BD60090B76F /* ScaleNote.swift in Sources */,
 				5398AA401B45B41D00DD259B /* NoteGuessingGameTests.swift in Sources */,
 				53018E831D06C08D00CD5A8D /* FingerPositionStats.swift in Sources */,
+				538755BB1D193C690090B76F /* ScalesGameTests.swift in Sources */,
 				5398AA421B45B41D00DD259B /* ScaleTests.swift in Sources */,
 				5398AA411B45B41D00DD259B /* FingerPositionTests.swift in Sources */,
+				53FCF4D61D12A8FD007DEE1A /* ScaleNoteTests.swift in Sources */,
 				53018E811D06C06F00CD5A8D /* NoteGuessingGameHistory.swift in Sources */,
 				534EBC611B45B74F00C7C45C /* GuitarRenderingSettings.swift in Sources */,
 				5304F2281B86257600DBA4D4 /* Settings.swift in Sources */,
@@ -364,6 +389,9 @@
 				534EBC621B45B74F00C7C45C /* Guitar.swift in Sources */,
 				53018E861D09668E00CD5A8D /* GuitarString.swift in Sources */,
 				534EBC631B45B74F00C7C45C /* NoteGuessingGame.swift in Sources */,
+				53FCF4D31D1001B9007DEE1A /* ScalesGame.swift in Sources */,
+				53018E891D0F292900CD5A8D /* ScalesGameViewController.swift in Sources */,
+				53FCF4D41D10023B007DEE1A /* NoteCell.swift in Sources */,
 				534EBC791B45B88B00C7C45C /* ArrayExtensions.swift in Sources */,
 				534EBC5F1B45B74F00C7C45C /* FingerPosition.swift in Sources */,
 			);
