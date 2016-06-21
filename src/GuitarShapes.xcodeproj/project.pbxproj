@@ -224,21 +224,53 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		53859C531D19C95B00985745 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				53859C561D19C9F900985745 /* Notes */,
+				53859C551D19C9DC00985745 /* Scales */,
+			);
+			name = Games;
+			sourceTree = "<group>";
+		};
+		53859C541D19C97900985745 /* Guitar */ = {
+			isa = PBXGroup;
+			children = (
+				53018E841D09667800CD5A8D /* GuitarString.swift */,
+				534EBC581B45B72000C7C45C /* Guitar.swift */,
+				534EBC561B45B72000C7C45C /* Scale.swift */,
+				534EBC551B45B72000C7C45C /* FingerPosition.swift */,
+			);
+			name = Guitar;
+			sourceTree = "<group>";
+		};
+		53859C551D19C9DC00985745 /* Scales */ = {
+			isa = PBXGroup;
+			children = (
+				53FCF4D11D100059007DEE1A /* ScalesGame.swift */,
+				538755B71D193BCA0090B76F /* ScaleNote.swift */,
+			);
+			name = Scales;
+			sourceTree = "<group>";
+		};
+		53859C561D19C9F900985745 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				534EBC591B45B72000C7C45C /* NotesGame.swift */,
+				53018E7B1D06BEC300CD5A8D /* NotesGameHistory.swift */,
+				53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */,
+				53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */,
+			);
+			name = Notes;
+			sourceTree = "<group>";
+		};
 		5398AA451B45B45B00DD259B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				534EBC551B45B72000C7C45C /* FingerPosition.swift */,
-				534EBC561B45B72000C7C45C /* Scale.swift */,
+				53859C541D19C97900985745 /* Guitar */,
+				53859C531D19C95B00985745 /* Games */,
 				534EBC571B45B72000C7C45C /* GuitarRenderingSettings.swift */,
-				534EBC581B45B72000C7C45C /* Guitar.swift */,
-				534EBC591B45B72000C7C45C /* NotesGame.swift */,
 				5304F2261B86152F00DBA4D4 /* Settings.swift */,
-				53018E7B1D06BEC300CD5A8D /* NotesGameHistory.swift */,
-				53018E7D1D06BEDE00CD5A8D /* PositionAnswer.swift */,
-				53018E7F1D06BF0200CD5A8D /* FingerPositionStats.swift */,
-				53018E841D09667800CD5A8D /* GuitarString.swift */,
-				53FCF4D11D100059007DEE1A /* ScalesGame.swift */,
-				538755B71D193BCA0090B76F /* ScaleNote.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
