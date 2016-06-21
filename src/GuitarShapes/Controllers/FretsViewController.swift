@@ -10,9 +10,9 @@ import UIKit
 
 class FretsViewController : UIViewController {
     
-    var history = NoteGuessingGameHistory()
+    var history = NotesGameHistory()
     
-    var game:NotesGuessingGame! = nil
+    var game:NotesGame! = nil
     
     var correctBackgroundColor = UIColor.greenColor()
     
@@ -56,7 +56,7 @@ class FretsViewController : UIViewController {
     }
     
     func reset() {
-        game = NotesGuessingGame(history: self.history)
+        game = NotesGame(history: self.history)
     }
     
     func refresh() {

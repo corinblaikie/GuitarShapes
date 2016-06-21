@@ -1,0 +1,6 @@
+TODO:
+
+Rename NotesGuessingGame to NotesGame
+Rename ScalesGuessingGame to ScalesGame
+Scales game -> guess all the notes in the scale
+Scales game -> guess all 

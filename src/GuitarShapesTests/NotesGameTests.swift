@@ -1,18 +1,18 @@
 import Foundation
 import XCTest
 
-class NotesGuessingGameTests: XCTestCase {
+class NotesGameTests: XCTestCase {
     
     func testGameNotOver() {
         
-        let game = NotesGuessingGame(history: NoteGuessingGameHistory())
+        let game = NotesGame(history: NotesGameHistory())
         
         XCTAssertEqual(false, game.isOver())
     }
     
     func testCorrectAnswer() {
         
-        let game = NotesGuessingGame(history: NoteGuessingGameHistory())
+        let game = NotesGame(history: NotesGameHistory())
         
         let correctPosition = game.currentPosition()
         game.guess(correctPosition.note)
@@ -23,7 +23,7 @@ class NotesGuessingGameTests: XCTestCase {
     
     func testIncorrectAnswer() {
         
-        let game = NotesGuessingGame(history: NoteGuessingGameHistory())
+        let game = NotesGame(history: NotesGameHistory())
         
         let correctPosition = game.currentPosition()
         
@@ -36,7 +36,7 @@ class NotesGuessingGameTests: XCTestCase {
     }
     
     func testGameOver() {
-        let game = NotesGuessingGame(history: NoteGuessingGameHistory())
+        let game = NotesGame(history: NotesGameHistory())
         while game.questionsAnsweredCount() < game.questionsCount() {
             game.guess("A")
         }
@@ -45,7 +45,7 @@ class NotesGuessingGameTests: XCTestCase {
     }
     
     func testNoteCount() {
-        XCTAssertEqual(12, NotesGuessingGame(history: NoteGuessingGameHistory()
+        XCTAssertEqual(12, NotesGame(history: NotesGameHistory()
             ).noteCount())
     }
     

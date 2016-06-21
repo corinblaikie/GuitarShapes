@@ -1,6 +1,6 @@
 import Foundation
 
-class NoteGuessingGameHistory {
+class NotesGameHistory {
     
     private let settings:Settings = Settings.instance
     private var answers:[PositionAnswer] = []

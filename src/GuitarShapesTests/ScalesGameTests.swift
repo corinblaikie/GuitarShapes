@@ -9,7 +9,7 @@ class ScalesGameTests :XCTestCase {
         // Random values (12 (turns) * 12 (scales) * 2 (maj, min)
         // so test lots of times
         for _ in 0...1000 {
-            let game = ScaleGuessingGame()
+            let game = ScalesGame()
             
             while (!game.isOver()) {
                 let result = notesWithoutSharps.contains(game.currentScale().note())
@@ -26,7 +26,7 @@ class ScalesGameTests :XCTestCase {
         // Random values (12 (turns) * 12 (scales) * 2 (maj, min)
         // so test lots of times
         for _ in 0...1000 {
-            let game = ScaleGuessingGame()
+            let game = ScalesGame()
             
             while (!game.isOver()) {
                 let firstNoteInScale = game.currentScale().scale.notes().first!

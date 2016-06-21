@@ -1,20 +1,20 @@
 import Foundation
 import AVFoundation
 
-class NotesGuessingGame {
+class NotesGame {
     
     private var positionsNotAsked:[FingerPosition] = []
     private var positionsAsked:[FingerPosition] = []
     private var notesGuessed:[String] = []
     private var settings:Settings = Settings.instance
-    private var history:NoteGuessingGameHistory
+    private var history:NotesGameHistory
     
     
     let lowScoringTurns = 6
     let otherTurns = 6
     var totalTurns = 12
     
-    init(history:NoteGuessingGameHistory) {
+    init(history:NotesGameHistory) {
         self.history = history
         
         let lowScoringPositions = history.GetPositionsByLowestScore()

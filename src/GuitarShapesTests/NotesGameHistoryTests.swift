@@ -1,10 +1,10 @@
 import Foundation
 import XCTest
 
-class NoteGuessingGameHistoryTests :XCTestCase {
+class NotesGameHistoryTests :XCTestCase {
     
     func testGetScoreFor() {
-        let history = NoteGuessingGameHistory()
+        let history = NotesGameHistory()
         let position = FingerPosition(stringIndex: 0, fretIndex: 0)
         history.Add(PositionAnswer(positionAsked: position, correct: true))
         history.Add(PositionAnswer(positionAsked: position, correct: true))
@@ -16,7 +16,7 @@ class NoteGuessingGameHistoryTests :XCTestCase {
     }
     
     func testGetPositionsByLowestScore_FiltersOutPositionsThatHaveOnlyBeenAnsweredCorrectly() {
-        let history = NoteGuessingGameHistory()
+        let history = NotesGameHistory()
         let correctPosition = FingerPosition(stringIndex: 0, fretIndex: 0)
         let incorrectPosition = FingerPosition(stringIndex: 1, fretIndex: 0)
         
@@ -30,7 +30,7 @@ class NoteGuessingGameHistoryTests :XCTestCase {
     }
     
     func testGetPositionsByLowestScore_OrdersPositionsByWorstAnswersFirst() {
-        let history = NoteGuessingGameHistory()
+        let history = NotesGameHistory()
         
         let fullWrongPosition = FingerPosition(stringIndex: 0, fretIndex: 0)
         let halfWrongPosition = FingerPosition(stringIndex: 1, fretIndex: 0)

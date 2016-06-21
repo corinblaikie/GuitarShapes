@@ -1,6 +1,6 @@
 import Foundation
 
-class ScaleGuessingGame {
+class ScalesGame {
     
     let totalTurns:Int = 12
     

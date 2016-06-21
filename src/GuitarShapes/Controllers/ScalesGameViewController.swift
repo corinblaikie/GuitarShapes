@@ -3,7 +3,7 @@ import UIKit
 class ScalesGameViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var fingerPosition: FingerPosition!
-    var game:ScaleGuessingGame! = nil
+    var game:ScalesGame! = nil
     
     @IBOutlet var buttons: UICollectionView!
     
@@ -56,7 +56,7 @@ class ScalesGameViewController : UIViewController, UICollectionViewDataSource, U
     }
     
     private func reset() {
-        game = ScaleGuessingGame()
+        game = ScalesGame()
         refresh()
         buttons.hidden = false
     }
