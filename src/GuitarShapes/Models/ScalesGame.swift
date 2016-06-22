@@ -13,14 +13,14 @@ class ScalesGame {
     init() {
         let allScales:[Scale] = [CMajorScale(), DMajorScale(), EMajorScale(), AMajorScale(), GMajorScale() ]
         
-        while (scaleNotesToAsk.count <= totalTurns) {
-            let scale = allScales.randomItem()
+        for scale in allScales {
+            for (index, _) in scale.notes().enumerate() {
             
-            let pos = Int(arc4random_uniform(UInt32(scale.notes().count)))
-            let scaleNote = ScaleNote(scale: scale, position: pos)
+                let scaleNote = ScaleNote(scale: scale, position: index)
         
-            if (pos != 0 && scaleNote.note() != "B" && scaleNote.note() != "E") {
-                scaleNotesToAsk.append(scaleNote)
+                if (index != 0 && scaleNote.note() != "B" && scaleNote.note() != "E") {
+                    scaleNotesToAsk.append(scaleNote)
+                }
             }
         
         }

@@ -36,7 +36,6 @@
 		534EBC631B45B74F00C7C45C /* NotesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC591B45B72000C7C45C /* NotesGame.swift */; };
 		534EBC661B45B78500C7C45C /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC651B45B78500C7C45C /* ArrayExtensions.swift */; };
 		534EBC6B1B45B7EA00C7C45C /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC681B45B7EA00C7C45C /* NotesViewController.swift */; };
-		534EBC6C1B45B7EA00C7C45C /* ScalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC691B45B7EA00C7C45C /* ScalesViewController.swift */; };
 		534EBC741B45B81300C7C45C /* GuitarShapeDiagramUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC6F1B45B81300C7C45C /* GuitarShapeDiagramUIView.swift */; };
 		534EBC751B45B81300C7C45C /* GuitarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC701B45B81300C7C45C /* GuitarLayer.swift */; };
 		534EBC761B45B81300C7C45C /* PositionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EBC711B45B81300C7C45C /* PositionLayer.swift */; };
@@ -91,7 +90,6 @@
 		534EBC591B45B72000C7C45C /* NotesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesGame.swift; sourceTree = "<group>"; };
 		534EBC651B45B78500C7C45C /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		534EBC681B45B7EA00C7C45C /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		534EBC691B45B7EA00C7C45C /* ScalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalesViewController.swift; sourceTree = "<group>"; };
 		534EBC6F1B45B81300C7C45C /* GuitarShapeDiagramUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarShapeDiagramUIView.swift; sourceTree = "<group>"; };
 		534EBC701B45B81300C7C45C /* GuitarLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarLayer.swift; sourceTree = "<group>"; };
 		534EBC711B45B81300C7C45C /* PositionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionLayer.swift; sourceTree = "<group>"; };
@@ -203,11 +201,10 @@
 		534EBC671B45B79400C7C45C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				534EBC681B45B7EA00C7C45C /* NotesViewController.swift */,
-				534EBC691B45B7EA00C7C45C /* ScalesViewController.swift */,
-				5304F2241B86136000DBA4D4 /* SettingsViewController.swift */,
 				53C6C0C01C60064D00565A5C /* FretsViewController.swift */,
+				534EBC681B45B7EA00C7C45C /* NotesViewController.swift */,
 				53018E871D0F292900CD5A8D /* ScalesGameViewController.swift */,
+				5304F2241B86136000DBA4D4 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -387,7 +384,6 @@
 				534EBC661B45B78500C7C45C /* ArrayExtensions.swift in Sources */,
 				534EBC5B1B45B72000C7C45C /* Scale.swift in Sources */,
 				534EBC751B45B81300C7C45C /* GuitarLayer.swift in Sources */,
-				534EBC6C1B45B7EA00C7C45C /* ScalesViewController.swift in Sources */,
 				534EBC771B45B81300C7C45C /* ScaleLayer.swift in Sources */,
 				5304F2251B86136000DBA4D4 /* SettingsViewController.swift in Sources */,
 				53C6C0C11C60064D00565A5C /* FretsViewController.swift in Sources */,

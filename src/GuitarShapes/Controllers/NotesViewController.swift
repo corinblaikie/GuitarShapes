@@ -11,6 +11,7 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet var buttons: UICollectionView!
     
     override func viewDidLoad() {
+        reset()
     }
     
     override func viewDidAppear(animated: Bool) {

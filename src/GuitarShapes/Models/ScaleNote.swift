@@ -15,7 +15,14 @@ class ScaleNote {
     }
     
     func maskedDescription() -> String {
-        return scale.description()
-                    .stringByReplacingOccurrencesOfString(note(), withString: "_")
+        var result = scale.description()
+        for (index, note) in scale.notes().enumerate() {
+            if (index >= position) {
+                result = result.stringByReplacingOccurrencesOfString(note, withString: "_")
+            }
+        }
+        
+        return result
+        
     }
 }

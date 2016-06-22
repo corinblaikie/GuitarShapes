@@ -6,68 +6,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Scales View Controller-->
-        <scene sceneID="4SW-gk-7Ab">
-            <objects>
-                <viewController id="hh2-D1-8c3" userLabel="Scales View Controller" customClass="ScalesViewController" customModule="GuitarShapes" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lVG-D0-TJr"/>
-                        <viewControllerLayoutGuide type="bottom" id="CCJ-ud-bF2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u71-hY-9rY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C Major Scale" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bo3-A7-h0d">
-                                <rect key="frame" x="20" y="20" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C,D,E,F,G,A,B" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-PY-Qbi">
-                                <rect key="frame" x="20" y="41" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPT-Qg-1Wr" customClass="GuitarShapeDiagramUIView" customModule="GuitarShapes">
-                                <rect key="frame" x="20" y="62" width="560" height="538"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="KOr-2B-kPd" appends="YES" id="KeF-zP-vYB"/>
-                                </connections>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="o0x-PY-Qbi" firstAttribute="trailing" secondItem="u71-hY-9rY" secondAttribute="trailingMargin" id="EOf-4x-Jjd"/>
-                            <constraint firstItem="bo3-A7-h0d" firstAttribute="trailing" secondItem="u71-hY-9rY" secondAttribute="trailingMargin" id="EYI-nG-N6u"/>
-                            <constraint firstItem="aPT-Qg-1Wr" firstAttribute="top" secondItem="o0x-PY-Qbi" secondAttribute="bottom" id="R1x-05-Ydj"/>
-                            <constraint firstItem="bo3-A7-h0d" firstAttribute="leading" secondItem="u71-hY-9rY" secondAttribute="leadingMargin" id="R7c-u4-JDG"/>
-                            <constraint firstItem="bo3-A7-h0d" firstAttribute="bottom" secondItem="o0x-PY-Qbi" secondAttribute="top" id="bcF-3U-f0D"/>
-                            <constraint firstItem="aPT-Qg-1Wr" firstAttribute="leading" secondItem="u71-hY-9rY" secondAttribute="leadingMargin" id="o3b-j9-h9q"/>
-                            <constraint firstItem="o0x-PY-Qbi" firstAttribute="leading" secondItem="u71-hY-9rY" secondAttribute="leadingMargin" id="t3c-2K-9dN"/>
-                            <constraint firstItem="aPT-Qg-1Wr" firstAttribute="trailing" secondItem="u71-hY-9rY" secondAttribute="trailingMargin" id="vcl-vu-hnx"/>
-                            <constraint firstItem="CCJ-ud-bF2" firstAttribute="top" secondItem="aPT-Qg-1Wr" secondAttribute="bottom" constant="-49" id="zZN-hd-gQm"/>
-                            <constraint firstItem="bo3-A7-h0d" firstAttribute="top" secondItem="lVG-D0-TJr" secondAttribute="bottom" id="zhk-Y4-CJH"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Scales" id="QWA-9T-JNT"/>
-                    <connections>
-                        <outlet property="diagram" destination="aPT-Qg-1Wr" id="Wxt-Cm-N8y"/>
-                        <outlet property="nameLabel" destination="bo3-A7-h0d" id="IQp-jD-9dc"/>
-                        <outlet property="notesLabel" destination="o0x-PY-Qbi" id="CxY-qY-Bhl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s7g-rq-xfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="KOr-2B-kPd">
-                    <connections>
-                        <action selector="onSwipe:" destination="hh2-D1-8c3" id="bfY-m0-GNI"/>
-                    </connections>
-                </swipeGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="135" y="-1588"/>
-        </scene>
         <!--Guitar Notes-->
         <scene sceneID="gYT-JZ-ofZ">
             <objects>
@@ -292,9 +230,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="UQD-99-73C" kind="relationship" relationship="viewControllers" id="DvL-On-ywo"/>
+                        <segue destination="qe1-gY-rJR" kind="relationship" relationship="viewControllers" id="LSh-jS-nZA"/>
                         <segue destination="xAD-0P-nbG" kind="relationship" relationship="viewControllers" id="g3Y-xR-rUM"/>
                         <segue destination="EOL-Vw-EtM" kind="relationship" relationship="viewControllers" id="vQ9-ZG-2SD"/>
-                        <segue destination="qe1-gY-rJR" kind="relationship" relationship="viewControllers" id="LSh-jS-nZA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ed-37-TxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,4 +1,3 @@
 TODO:
 
 Scales game -> guess all the notes in the scale
-Scales game -> guess all 
