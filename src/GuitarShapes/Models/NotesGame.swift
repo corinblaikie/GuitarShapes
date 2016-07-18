@@ -17,7 +17,7 @@ class NotesGame {
     init(history:NotesGameHistory) {
         self.history = history
         
-        let lowScoringPositions = history.GetPositionsByLowestScore()
+        let lowScoringPositions = history.getPositionsByLowestScore()
                                          .shuffle()
                                          .prefix(lowScoringTurns)
         
@@ -42,7 +42,7 @@ class NotesGame {
         let position = positionsNotAsked.removeAtIndex(0)
         positionsAsked.append(position)
         let answer = PositionAnswer(positionAsked: position, correct: isLastGuessCorrect())
-        history.Add(answer)
+        history.add(answer)
     }
     
     func isOver() -> Bool {

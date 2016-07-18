@@ -34,12 +34,12 @@ class SettingsViewController : UITableViewController {
     
     @IBOutlet var markerFretSwitch: UISwitch!
     override func viewDidLoad() {
-        lowEStringSwitch.enabled = settings.isStringEnabled(GuitarString.lowEString)
-        aStringSwitch.enabled = settings.isStringEnabled(GuitarString.aString)
-        dStringSwitch.enabled = settings.isStringEnabled(GuitarString.dString)
-        gStringSwitch.enabled = settings.isStringEnabled(GuitarString.gString)
-        bStringSwitch.enabled = settings.isStringEnabled(GuitarString.bString)
-        highEStringSwitch.enabled = settings.isStringEnabled(GuitarString.hightEString)
+        lowEStringSwitch.enabled = settings.isStringEnabled(Guitar.lowEString)
+        aStringSwitch.enabled = settings.isStringEnabled(Guitar.aString)
+        dStringSwitch.enabled = settings.isStringEnabled(Guitar.dString)
+        gStringSwitch.enabled = settings.isStringEnabled(Guitar.gString)
+        bStringSwitch.enabled = settings.isStringEnabled(Guitar.bString)
+        highEStringSwitch.enabled = settings.isStringEnabled(Guitar.hightEString)
         minFretSlider.value = Float(settings.getMinFret());
         //maxFretSlider.value = Float(settings.getMaxFret());
         //maxFretSlider.minimumValue = minFretSlider.value
@@ -63,27 +63,27 @@ class SettingsViewController : UITableViewController {
     }
     
     @IBAction func OnLowESwitched(sender: UISwitch) {
-        settings.toggleString(GuitarString.lowEString, enabled: sender.on)
+        settings.toggleString(Guitar.lowEString, enabled: sender.on)
     }
     
     @IBAction func onAStringSwitched(sender: UISwitch) {
-        settings.toggleString(GuitarString.aString, enabled: sender.on)
+        settings.toggleString(Guitar.aString, enabled: sender.on)
     }
     
     @IBAction func onDStringSwitched(sender: UISwitch) {
-        settings.toggleString(GuitarString.dString, enabled: sender.on)
+        settings.toggleString(Guitar.dString, enabled: sender.on)
     }
     
     @IBAction func onGStringSwitched(sender: UISwitch) {
-        settings.toggleString(GuitarString.gString, enabled: sender.on)
+        settings.toggleString(Guitar.gString, enabled: sender.on)
     }
     
     @IBAction func onBStringSwitched(sender: UISwitch) {
-        settings.toggleString(GuitarString.bString, enabled: sender.on)
+        settings.toggleString(Guitar.bString, enabled: sender.on)
     }
     
     @IBAction func onHighESwitched(sender: UISwitch) {
-        settings.toggleString(GuitarString.hightEString, enabled: sender.on)
+        settings.toggleString(Guitar.hightEString, enabled: sender.on)
     }
     
     @IBAction func onMarkerFretsSwiched(sender: UISwitch) {

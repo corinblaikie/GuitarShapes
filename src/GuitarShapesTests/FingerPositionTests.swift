@@ -3,6 +3,7 @@ import XCTest
 
 class FingerPositionTests: XCTestCase {
     
+    
     func testNoteShouldBeCorrectForAnOpenEString() {
         
         let position:FingerPosition = FingerPosition(stringIndex: 0, fretIndex: -1)
@@ -10,11 +11,27 @@ class FingerPositionTests: XCTestCase {
         XCTAssertEqual("E", position.note)
     }
     
+    func testIndexShouldBeCorrectForAnOpenEString() {
+        
+        let position:FingerPosition = FingerPosition(string: Guitar.lowEString, note: "E")
+        
+        XCTAssertEqual("E", position.note)
+        XCTAssertEqual(-1, position.fretIndex)
+    }
+    
     func testNoteShouldBeCorrectForAnEStringWithFret() {
         
         let position:FingerPosition = FingerPosition(stringIndex: 0, fretIndex: 0)
         
         XCTAssertEqual("F", position.note)
+    }
+    
+    func testIndexShouldBeCorrectForAnEStringWithF() {
+        
+        let position:FingerPosition = FingerPosition(string: Guitar.lowEString, note: "F")
+        
+        XCTAssertEqual("F", position.note)
+        XCTAssertEqual(0, position.fretIndex)
     }
     
     func testNoteShouldBeCorrectForAnEStringWithFretOverAnOctaveHigher() {
@@ -35,6 +52,6 @@ class FingerPositionTests: XCTestCase {
         
         let position:FingerPosition = FingerPosition(stringIndex: 1, fretIndex: 0)
         
-        XCTAssertEqual("A#", position.note)
+        XCTAssertEqual("A♯", position.note)
     }
 }

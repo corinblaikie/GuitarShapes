@@ -1,3 +1,13 @@
 TODO:
 
-Scales game -> guess all the notes in the scale
+Scales game -> other scales
+Scales game -> settings
+Scales game -> history
+notes game -> percent correct
+
+
+Save History to disk
+
+History graph
+
+Circle of fifths

@@ -7,6 +7,13 @@ public class FingerPosition: Equatable
     let stringIndex:Int
     let note:String
     
+    init (string:GuitarString, note:String) {
+        self.stringIndex = string.index
+        
+        self.fretIndex = string.indexOf(note)
+        self.note = note
+    }
+    
     init (stringIndex: Int, fretIndex: Int)
     {
         self.stringIndex = stringIndex
@@ -14,23 +21,18 @@ public class FingerPosition: Equatable
         self.note = FingerPosition.calculateNote(stringIndex, fretIndex: fretIndex)
     }
     
-    static func fromArray(positions:[(Int, Int)]) -> [FingerPosition] {
+    static func fromIndexArray(positions:[(Int, Int)]) -> [FingerPosition] {
         // maps from an array Tuples to FingerPositions
         return positions.map  { (p) in FingerPosition(stringIndex: p.0, fretIndex: p.1) }
     }
     
+    static func fromArray(positions:[(GuitarString, String)]) -> [FingerPosition] {
+        // maps from an array Tuples to FingerPositions
+        return positions.map  { (p) in FingerPosition(string: p.0, note: p.1) }
+    }
+    
      static func calculateNote(stringIndex: Int, fretIndex: Int) -> String {
-        let startingNote = Guitar.strings[stringIndex]
-        let startingNoteSemitoneIndex = Guitar.semitones.indexOf(startingNote)
-        let semitonesRange = fretIndex % Guitar.semitoneCount + 1  //+1 is to account for index starting at the first fret rather than the open string
-        
-        if (startingNoteSemitoneIndex! + semitonesRange >= Guitar.semitoneCount) {
-            let resultIndex = startingNoteSemitoneIndex! + semitonesRange - Guitar.semitoneCount
-            return Guitar.semitones[resultIndex]
-        } else {
-            let resultIndex = startingNoteSemitoneIndex! + semitonesRange
-            return Guitar.semitones[resultIndex]
-        }
+        return Guitar.strings[stringIndex].noteAt(fretIndex)
     }
 }
 

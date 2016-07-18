@@ -5,15 +5,50 @@ class GuitarString {
     let index:Int
     let name:String
     
-    static let lowEString = GuitarString(index: 0, name: "E")
-    static let aString = GuitarString(index: 1, name: "A")
-    static let dString = GuitarString(index: 2, name: "D")
-    static let gString = GuitarString(index: 3, name: "G")
-    static let bString = GuitarString(index: 4, name: "B")
-    static let hightEString = GuitarString(index: 5, name: "E")
-    
     init(index:Int, name:String) {
         self.index = index
         self.name = name
+    }
+    
+    func indexOf(note:String) -> Int {
+        var spaces = getSpacesBetween(self.name, secondSemitone: note)
+        
+        if (spaces == 12) {
+            // reset to open string
+            spaces = 0
+        }
+        
+        return spaces - 1 // open string starts at -1
+    }
+    
+    private func getSpacesBetween(firstSemitone: String, secondSemitone: String) -> Int {
+        
+        //TODO: refactor of Guitar.semitones
+        
+        if let firstIndex = Guitar.semitones.indexOf(firstSemitone) {
+            if let secondIndex = Guitar.semitones.indexOf(secondSemitone) {
+                if (secondIndex > firstIndex) {
+                    return secondIndex - firstIndex
+                }
+                
+                return (Guitar.semitones.count - firstIndex) + secondIndex
+            }
+        }
+        
+        return 0
+    }
+    
+    func noteAt(fretIndex:Int) -> String {
+        
+        let startingNoteSemitoneIndex = Guitar.semitones.indexOf(self.name)
+        let semitonesRange = fretIndex % Guitar.semitoneCount + 1  //+1 is to account for index starting at the first fret rather than the open string
+        
+        if (startingNoteSemitoneIndex! + semitonesRange >= Guitar.semitoneCount) {
+            let resultIndex = startingNoteSemitoneIndex! + semitonesRange - Guitar.semitoneCount
+            return Guitar.semitones[resultIndex]
+        } else {
+            let resultIndex = startingNoteSemitoneIndex! + semitonesRange
+            return Guitar.semitones[resultIndex]
+        }
     }
 }

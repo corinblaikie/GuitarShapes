@@ -61,7 +61,7 @@ class FretsViewController : UIViewController {
     
     func refresh() {
         nodeLabel.text = game.currentPosition().note
-        turnLabel.text = "\(game.turn())/\(game.totalTurns)"
+        turnLabel.text = "\(game.turn())/\(game.totalTurns) \(history.percentCorrect())"
         diagram.highlightString(game.currentPosition().stringIndex)
         diagram.setNeedsDisplay()
     }

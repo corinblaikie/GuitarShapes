@@ -1,9 +1,10 @@
 import UIKit
+import SpriteKit
 
 class ScalesGameViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var fingerPosition: FingerPosition!
-    var game:ScalesGame! = nil
+    var game:ScalesGame = ScalesGame()
     
     @IBOutlet var buttons: UICollectionView!
     
@@ -40,12 +41,16 @@ class ScalesGameViewController : UIViewController, UICollectionViewDataSource, U
         {
             let note = sender.titleLabel!.text!
             game.guess(note)
-            
-            refresh()
-            
             displayGuessFeedback(sender)
+            
         }
         
+        if (!game.isOver() && !game.currentScale().hasAnswers()){
+            refreshEndOfScale()
+        }
+        else {
+            refresh()
+        }
     }
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
@@ -62,9 +67,18 @@ class ScalesGameViewController : UIViewController, UICollectionViewDataSource, U
     }
     
     private func refresh() {
-        scaleNameLabel.text = game.scaleName()
         
+        scaleNameLabel.text = game.scaleName()
         notesLabel.text = game.notesDescription()
+    }
+    
+    private func refreshEndOfScale() {
+        scaleNameLabel.text = game.previousScaleName()
+        notesLabel.text = game.previousNotesDescription()
+        
+        let delay:Double = 2.0
+        let wait = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        dispatch_after(wait, dispatch_get_main_queue(), { self.refresh() })
     }
     
     func displayGuessFeedback(sender: UIButton) {

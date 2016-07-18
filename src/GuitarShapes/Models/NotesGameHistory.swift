@@ -7,7 +7,7 @@ class NotesGameHistory {
     
     private var positionStats:[FingerPositionStats] = []
     
-    func Add(answer:PositionAnswer) {
+    func add(answer:PositionAnswer) {
         //store answer
         answers.append(answer)
         
@@ -20,15 +20,19 @@ class NotesGameHistory {
         positionStats.append(newStats)
     }
     
-    func GetScoreFor(position:FingerPosition) -> Double {
+    func getScoreFor(position:FingerPosition) -> Double {
         return positionStats.filter({$0.position == position}).first?.score ?? 0
     }
     
-    func GetPositionsByLowestScore() -> [FingerPosition] {
+    func getPositionsByLowestScore() -> [FingerPosition] {
         
         return positionStats.sort({ $0.score < $1.score })
             .filter({ $0.score < 1.0})
             .filter({ settings.isEnabled($0.position.stringIndex, fretIndex: $0.position.fretIndex) })
             .map({$0.position})
+    }
+    
+    func percentCorrect() -> Double {
+        return Double(answers.filter({$0.correct}).count) / Double(answers.count)  * 100
     }
 }

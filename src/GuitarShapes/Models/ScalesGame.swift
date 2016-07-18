@@ -2,64 +2,66 @@ import Foundation
 
 class ScalesGame {
     
-    let totalTurns:Int = 12
+    private var questionsIncomplete:[ScaleQuestion] = []
     
-    private var scaleNotesToAsk:[ScaleNote] = []
+    private var questionsComplete:[ScaleQuestion] = []
     
-    private var scaleNotesAsked:[ScaleNote] = []
-    
-    private var notesGuessed:[String] = []
+    private var history = ScalesGameHistory.instance
     
     init() {
-        let allScales:[Scale] = [CMajorScale(), DMajorScale(), EMajorScale(), AMajorScale(), GMajorScale() ]
         
-        for scale in allScales {
-            for (index, _) in scale.notes().enumerate() {
-            
-                let scaleNote = ScaleNote(scale: scale, position: index)
+        let allScales:[Scale] = [Scale.cMajor(), Scale.dMajor(), Scale.eMajor(), Scale.aMajor(), Scale.gMajor() ]
         
-                if (index != 0 && scaleNote.note() != "B" && scaleNote.note() != "E") {
-                    scaleNotesToAsk.append(scaleNote)
-                }
-            }
-        
+        for scale in allScales.shuffle() {
+            let question = ScaleQuestion(scale: scale)
+            questionsIncomplete.append(question)
         }
     }
     
     func notesDescription() -> String {
         
-        if (scaleNotesToAsk.isEmpty) {
+        if (questionsIncomplete.isEmpty) {
             return ""
         }
         
-        return scaleNotesToAsk.first!.maskedDescription()
+        return questionsIncomplete.first!.maskedDescription()
     }
     
     func scaleName() -> String {
-        return (scaleNotesToAsk.first?.scale.name) ?? ""
+        return (questionsIncomplete.first?.scale.name) ?? ""
     }
     
     func turn() -> Int {
-        return scaleNotesAsked.count + 1
+        return questionsComplete.count + 1
     }
     
-    func currentScale() -> ScaleNote {
-        return scaleNotesToAsk.first!
+    func currentScale() -> ScaleQuestion {
+        return questionsIncomplete.first!
     }
     
     func guess(note: String) {
-        notesGuessed.append(note)
+        let question = questionsIncomplete.first!
+        question.answer(note)
         
-        let scaleNote = scaleNotesToAsk.removeAtIndex(0)
-        scaleNotesAsked.append(scaleNote)
+        if (question.isComplete()){
+            questionsIncomplete.removeAtIndex(0)
+            questionsComplete.append(question)
+            history.add(question)
+        }
     }
     
     func isOver() -> Bool {
-        return scaleNotesToAsk.isEmpty
+        return questionsIncomplete.isEmpty
     }
     
     func isLastGuessCorrect() -> Bool {
-        return notesGuessed.last! == scaleNotesAsked.last!.note()
+        
+        if ((!questionsIncomplete.isEmpty) && questionsIncomplete.first!.hasAnswers()) {
+            return questionsIncomplete.first!.isLastGuessCorrect()
+        }
+        
+        return questionsComplete.last?
+                                .isLastGuessCorrect() ?? false
     }
     
     func getNote(index:Int) -> String {
@@ -71,20 +73,22 @@ class ScalesGame {
     }
     
     func questionsCount() -> Int {
-        return scaleNotesAsked.count + scaleNotesToAsk.count
+        return questionsComplete.count + questionsIncomplete.count
     }
     
     func questionsAnsweredCount() -> Int {
-        return notesGuessed.count
+        return questionsComplete.count
     }
  
     func questionsAnsweredCorrectlyCount() -> Int {
-        var correct = 0
-        for (index, guess) in notesGuessed.enumerate() {
-            if (guess == scaleNotesAsked[index].note()) {
-                correct += 1;
-            }
-        }
-        return correct
+        return questionsComplete.filter({ $0.correct() }).count
+    }
+    
+    func previousNotesDescription() -> String {
+        return questionsComplete.last!.maskedDescription()
+    }
+    
+    func previousScaleName() -> String {
+        return questionsComplete.last!.scale.name
     }
 }

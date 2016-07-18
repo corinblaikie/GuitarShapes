@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Guitar Notes-->
+        <!--Notes Game-->
         <scene sceneID="gYT-JZ-ofZ">
             <objects>
-                <viewController id="xAD-0P-nbG" userLabel="Guitar Notes" customClass="NotesViewController" customModule="GuitarShapes" sceneMemberID="viewController">
+                <viewController id="xAD-0P-nbG" userLabel="Notes Game" customClass="NotesViewController" customModule="GuitarShapes" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uhg-9L-S4m"/>
                         <viewControllerLayoutGuide type="bottom" id="seg-76-3Bn"/>
@@ -95,7 +95,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="8MH-Q1-qid" secondAttribute="trailing" id="sSq-jQ-M9F"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notes" id="xg0-ZL-511"/>
+                    <tabBarItem key="tabBarItem" title="Notes Game" id="xg0-ZL-511"/>
                     <connections>
                         <outlet property="buttons" destination="8MH-Q1-qid" id="D3J-z3-TGI"/>
                         <outlet property="diagram" destination="OZD-rF-Lc2" id="s7U-zn-51v"/>
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="228" y="-888.75"/>
         </scene>
-        <!--Frets-->
+        <!--Frets Game-->
         <scene sceneID="dOa-S3-QLn">
             <objects>
-                <viewController title="Frets" id="UQD-99-73C" customClass="FretsViewController" customModule="GuitarShapes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Frets" id="UQD-99-73C" userLabel="Frets Game" customClass="FretsViewController" customModule="GuitarShapes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fZV-Ln-4Zr"/>
                         <viewControllerLayoutGuide type="bottom" id="tyt-O8-VPw"/>
@@ -202,7 +202,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Frets" id="UZ7-TF-0CC"/>
+                    <tabBarItem key="tabBarItem" title="Frets Game" id="UZ7-TF-0CC" userLabel="Frets Game"/>
                     <connections>
                         <outlet property="diagram" destination="e8l-bl-oc0" id="c0V-e2-keg"/>
                         <outlet property="nodeLabel" destination="udw-Ru-TKr" id="kAd-0b-j1g"/>
@@ -327,23 +327,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9hY-Tg-tfe" firstAttribute="top" secondItem="dMF-hJ-KCo" secondAttribute="bottom" id="8MO-6D-fhv"/>
+                            <constraint firstItem="zmx-3z-oga" firstAttribute="top" secondItem="Jya-2g-c1r" secondAttribute="bottom" id="CQJ-eo-O3P"/>
                             <constraint firstItem="dMF-hJ-KCo" firstAttribute="leading" secondItem="ciV-ss-BGx" secondAttribute="leadingMargin" id="CuI-Ga-ZDy"/>
+                            <constraint firstItem="dMF-hJ-KCo" firstAttribute="bottom" secondItem="9hY-Tg-tfe" secondAttribute="top" id="GXs-fD-0ub"/>
+                            <constraint firstItem="9hY-Tg-tfe" firstAttribute="top" secondItem="dMF-hJ-KCo" secondAttribute="bottom" id="J3Y-fp-EId"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zmx-3z-oga" secondAttribute="trailing" id="JPV-55-xbs"/>
                             <constraint firstItem="zmx-3z-oga" firstAttribute="leading" secondItem="ciV-ss-BGx" secondAttribute="leadingMargin" id="XMy-K6-7ml"/>
+                            <constraint firstItem="zmx-3z-oga" firstAttribute="top" secondItem="Jya-2g-c1r" secondAttribute="bottom" id="YRZ-m6-hrP"/>
                             <constraint firstItem="zmx-3z-oga" firstAttribute="leading" secondItem="ciV-ss-BGx" secondAttribute="leadingMargin" id="mql-Ld-T6d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dMF-hJ-KCo" secondAttribute="trailing" id="o2I-OC-xGx"/>
-                            <constraint firstItem="zmx-3z-oga" firstAttribute="top" secondItem="Jya-2g-c1r" secondAttribute="bottom" id="psP-os-J8R"/>
                             <constraint firstItem="dMF-hJ-KCo" firstAttribute="centerY" secondItem="ciV-ss-BGx" secondAttribute="centerY" id="reQ-gm-7J6"/>
-                            <constraint firstItem="dMF-hJ-KCo" firstAttribute="bottom" secondItem="9hY-Tg-tfe" secondAttribute="top" id="s8x-Yr-FHZ"/>
-                            <constraint firstItem="zmx-3z-oga" firstAttribute="top" secondItem="Jya-2g-c1r" secondAttribute="bottom" id="t3P-sy-hfQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="reQ-gm-7J6"/>
-                                <exclude reference="8MO-6D-fhv"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yV8-50-Nsi" appends="YES" id="y4i-aX-TtQ"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scales Game" id="O4Q-D2-Ohp"/>
                     <connections>
@@ -353,6 +355,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGw-P3-1fV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yV8-50-Nsi">
+                    <connections>
+                        <action selector="onTap:" destination="qe1-gY-rJR" id="Tba-Yl-3h4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1342" y="-569"/>
         </scene>

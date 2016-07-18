@@ -3,12 +3,25 @@ import XCTest
 
 class ScalesGameTests :XCTestCase {
     
+    func testScaleTheSameUntilAllNotesAreAnswered() {
+        
+        let game = ScalesGame()
+        
+        let initialScale = game.currentScale()
+        
+        game.guess("A")
+        
+        let scaleAfterGuess = game.currentScale()
+        
+        XCTAssertTrue(initialScale === scaleAfterGuess)
+    }
+    
     func testNotesAskedAreNeverNoteWithoutSharps() {
         let notesWithoutSharps = ["B", "E"]
         
         // Random values (12 (turns) * 12 (scales) * 2 (maj, min)
         // so test lots of times
-        for _ in 0...1000 {
+        for _ in 0...100 {
             let game = ScalesGame()
             
             while (!game.isOver()) {
@@ -25,7 +38,7 @@ class ScalesGameTests :XCTestCase {
         
         // Random values (12 (turns) * 12 (scales) * 2 (maj, min)
         // so test lots of times
-        for _ in 0...1000 {
+        for _ in 0...100 {
             let game = ScalesGame()
             
             while (!game.isOver()) {
@@ -39,5 +52,62 @@ class ScalesGameTests :XCTestCase {
             }
 
         }
+    }
+    
+    func testIsLastGuessCorrectWhenTrue() {
+        let game = ScalesGame()
+        let firstNote = game.currentScale().notesToAsk.first!
+        
+        game.guess(firstNote)
+        
+        let result = game.isLastGuessCorrect()
+        
+        XCTAssertTrue(result)
+    }
+    
+    func testIsLastGuessCorrectWhenFalse() {
+        let game = ScalesGame()
+        
+        let incorrectNote = game.currentScale().notesToAsk[1]
+        
+        game.guess(incorrectNote)
+        
+        let result = game.isLastGuessCorrect()
+        
+        XCTAssertFalse(result)
+    }
+    
+    func testIsLastGuessCorrectWhenFirstScaleCompleteWhenTrue() {
+        let game = ScalesGame()
+        
+        // answer the first scale correctly
+        for note in  game.currentScale().notesToAsk {
+            game.guess(note)
+        }
+        
+        XCTAssertTrue(game.isLastGuessCorrect())
+        
+        // answer first note of second scale correctly
+        let correctNote = game.currentScale().notesToAsk.first!
+        game.guess(correctNote)
+        
+        XCTAssertTrue(game.isLastGuessCorrect())
+    }
+    
+    func testIsLastGuessCorrectWhenFirstScaleCompleteWhenFalse() {
+        let game = ScalesGame()
+        
+        // answer the first scale correctly
+        for note in  game.currentScale().notesToAsk {
+            game.guess(note)
+        }
+        
+        XCTAssertTrue(game.isLastGuessCorrect())
+        
+        // answer first note of second scale correctly
+        let incorrectNote = game.currentScale().notesToAsk[1]
+        game.guess(incorrectNote)
+        
+        XCTAssertFalse(game.isLastGuessCorrect())
     }
 }
