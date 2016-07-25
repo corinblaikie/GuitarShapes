@@ -22,7 +22,7 @@ class ScaleLayer : CALayer {
         self.sublayers?.removeAll()
         
         for (index, position) in positions.enumerate() {
-            let layer = PositionLayer(position: getPoint(position), note: position.note.description(), color: color, textColor: textColor)
+            let layer = PositionLayer(position: getPoint(position), note: position.note.name(), color: color, textColor: textColor)
             layer.showLabel = showLabels
             layer.allowsEdgeAntialiasing = true
             layer.transform = CATransform3DMakeScale(0.25, 0.25, 1)

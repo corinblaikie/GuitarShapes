@@ -25,14 +25,14 @@ class FretsViewController : UIViewController {
         
         let fretIndex = diagram.getFret(location.y)
         
-        let guess = FingerPosition(stringIndex: game.currentPosition().stringIndex, fretIndex: fretIndex)
-        game.guess(guess.note)
+        let positionGuessed = FingerPosition(stringIndex: game.currentPosition().stringIndex, fretIndex: fretIndex)
+        game.guess(positionGuessed.note)
         
         let guessBackgroundColor = game.isLastGuessCorrect() ? correctBackgroundColor :  incorrectBackgroundColor
         let guessForegroundColor = game.isLastGuessCorrect() ? correctForegroundColor :  incorrectForegroundColor
         
         // highlight result
-        diagram.setPosition(guess, color: guessBackgroundColor, textColor: guessForegroundColor)
+        diagram.setPosition(positionGuessed, color: guessBackgroundColor, textColor: guessForegroundColor)
         
         if (game.isOver()) {
             reset()
@@ -52,7 +52,7 @@ class FretsViewController : UIViewController {
     }
     
     func refresh() {
-        nodeLabel.text = game.currentPosition().note.description()
+        nodeLabel.text = game.currentPosition().note.name()
         turnLabel.text = "\(game.turn())/\(game.totalTurns) \(history.percentCorrect())"
         diagram.highlightString(game.currentPosition().stringIndex)
         diagram.setNeedsDisplay()
