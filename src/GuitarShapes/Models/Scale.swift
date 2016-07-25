@@ -10,15 +10,43 @@ class Scale {
         self.positions = positions
     }
     
+    private func isFlat() -> Bool {
+        return name.containsString("♭")
+    }
+    
+    static func all() -> [Scale] {
+        return [Scale.aFlatMajor(),
+                Scale.aMajor(),
+                Scale.bFlatMajor(),
+                Scale.bMajor(),
+                Scale.cMajor(),
+                Scale.cSharpMajor(),
+                Scale.dFlatMajor(),
+                Scale.dMajor(),
+                Scale.eFlatMajor(),
+                Scale.eMajor(),
+                Scale.fMajor(),
+                Scale.fSharpMajor(),
+                Scale.gFlatMajor(),
+                Scale.gMajor() ]
+        
+    }
+    
     func description() -> String {
         // returns positions in scale as string e.g. "C, D, E, F, G, A, B, C"
-        let notes = self.positions.map({ (position: FingerPosition) -> String in position.note })
+        let preferFlat = self.isFlat()
+        let notes = self.positions.map({ (position: FingerPosition) -> String in position.note.name(preferFlat) })
         return notes.joinWithSeparator(", ")
     }
     
-    func notes() -> [String] {
+    func maskedDescription(notesToMask:[Note]) -> String {
+        let preferFlat = self.isFlat()
+        return notes().map({notesToMask.contains($0) ? "_" : $0.name(preferFlat) }).joinWithSeparator(", ")
+    }
+    
+    func notes() -> [Note] {
         // returns positions in scale as a list of notes e.g. [C, D, E, F, G, A, B, C]
-        return positions.map({ (position: FingerPosition) -> String in position.note })
+        return positions.map({ (position: FingerPosition) -> Note in position.note })
     }
     
     static func aFlatMajor() -> Scale {

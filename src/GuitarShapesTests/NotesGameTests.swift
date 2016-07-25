@@ -27,7 +27,7 @@ class NotesGameTests: XCTestCase {
         
         let correctPosition = game.currentPosition()
         
-        let incorrectAnswer = ["A", "A#"].filter { $0 != correctPosition.note }.first
+        let incorrectAnswer = [Note.a(), Note.aSharp()].filter { $0 != correctPosition.note }.first
         
         game.guess(incorrectAnswer!)
         
@@ -38,7 +38,7 @@ class NotesGameTests: XCTestCase {
     func testGameOver() {
         let game = NotesGame(history: NotesGameHistory())
         while game.questionsAnsweredCount() < game.questionsCount() {
-            game.guess("A")
+            game.guess(Note.a())
         }
         
         XCTAssertTrue(game.isOver())

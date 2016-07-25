@@ -11,10 +11,26 @@ class ScaleQuestionTests :XCTestCase {
         XCTAssertEqual(expectedMaskedScription, question.maskedDescription())
     }
     
+    func testFlatMaskedDescription() {
+        let scale = Scale.gFlatMajor()
+        let question = ScaleQuestion(scale: scale)
+        
+        let expectedMaskedScription = "G♭, _, _, C♭, _, _, _"
+        XCTAssertEqual(expectedMaskedScription, question.maskedDescription())
+    }
+    
+    func testSharpMaskedDescription() {
+        let scale = Scale.fSharpMajor()
+        let question = ScaleQuestion(scale: scale)
+        
+        let expectedMaskedScription = "F♯, _, _, B, _, _, _"
+        XCTAssertEqual(expectedMaskedScription, question.maskedDescription())
+    }
+    
     func testMaskedDescriptionAfterNotesAnswered() {
         let scale = Scale.cMajor() // "C, D, E, F, G, A, B, C"
         let question = ScaleQuestion(scale: scale)
-        question.answer("D") // first note not asked
+        question.answer(Note.fromName("D")) // first note not asked
         
         let expectedMaskedScription = "C, D, E, _, _, _, B"
         XCTAssertEqual(expectedMaskedScription, question.maskedDescription())
@@ -23,7 +39,7 @@ class ScaleQuestionTests :XCTestCase {
     func testIsLastGuessCorrect() {
         let scale = Scale.cMajor() // "C, D, E, F, G, A, B, C"
         let question = ScaleQuestion(scale: scale)
-        question.answer("D") // first note not asked
+        question.answer(Note.fromName("D")) // first note not asked
         
         XCTAssertTrue(question.isLastGuessCorrect())
     }
@@ -31,7 +47,7 @@ class ScaleQuestionTests :XCTestCase {
     func testHasAnswersWhenTrue() {
         let scale = Scale.cMajor() // "C, D, E, F, G, A, B, C"
         let question = ScaleQuestion(scale: scale)
-        question.answer("D") // first note not asked
+        question.answer(Note.fromName("D")) // first note not asked
         
         XCTAssertTrue(question.hasAnswers())
     }

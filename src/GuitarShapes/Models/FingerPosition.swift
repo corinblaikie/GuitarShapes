@@ -5,12 +5,12 @@ public class FingerPosition: Equatable
 {
     let fretIndex:Int //Index based on the first fret, open string is -1
     let stringIndex:Int
-    let note:String
+    let note:Note
     
-    init (string:GuitarString, note:String) {
-        self.stringIndex = string.index
+    init (guitarString:GuitarString, note:Note) {
+        self.stringIndex = guitarString.index
         
-        self.fretIndex = string.indexOf(note)
+        self.fretIndex = guitarString.indexOf(note)
         self.note = note
     }
     
@@ -28,10 +28,10 @@ public class FingerPosition: Equatable
     
     static func fromArray(positions:[(GuitarString, String)]) -> [FingerPosition] {
         // maps from an array Tuples to FingerPositions
-        return positions.map  { (p) in FingerPosition(string: p.0, note: p.1) }
+        return positions.map  { (p) in FingerPosition(guitarString: p.0, note: Note.fromName(p.1)) }
     }
     
-     static func calculateNote(stringIndex: Int, fretIndex: Int) -> String {
+     static func calculateNote(stringIndex: Int, fretIndex: Int) -> Note {
         return Guitar.strings[stringIndex].noteAt(fretIndex)
     }
 }

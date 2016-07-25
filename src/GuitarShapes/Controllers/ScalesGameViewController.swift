@@ -31,7 +31,7 @@ class ScalesGameViewController : UIViewController, UICollectionViewDataSource, U
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("NoteCellId", forIndexPath: indexPath) as! NoteCell
         let note = game.getNote(indexPath.row)
-        cell.setContent(note)
+        cell.setContent(note.description())
         return cell
     }
     

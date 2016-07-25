@@ -5,7 +5,7 @@ class NotesGame {
     
     private var positionsNotAsked:[FingerPosition] = []
     private var positionsAsked:[FingerPosition] = []
-    private var notesGuessed:[String] = []
+    private var notesGuessed:[Note] = []
     private var settings:Settings = Settings.instance
     private var history:NotesGameHistory
     
@@ -37,7 +37,7 @@ class NotesGame {
         return positionsNotAsked.first!
     }
     
-    func guess(note: String) {
+    func guess(note: Note) {
         notesGuessed.append(note)
         let position = positionsNotAsked.removeAtIndex(0)
         positionsAsked.append(position)
@@ -53,7 +53,7 @@ class NotesGame {
         return notesGuessed.last! == positionsAsked.last!.note
     }
     
-    func getNote(index:Int) -> String {
+    func getNote(index:Int) -> Note {
         return Guitar.semitones[index]
     }
     

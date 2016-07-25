@@ -10,9 +10,7 @@ class ScalesGame {
     
     init() {
         
-        let allScales:[Scale] = [Scale.cMajor(), Scale.dMajor(), Scale.eMajor(), Scale.aMajor(), Scale.gMajor() ]
-        
-        for scale in allScales.shuffle() {
+        for scale in Scale.all().shuffle() {
             let question = ScaleQuestion(scale: scale)
             questionsIncomplete.append(question)
         }
@@ -41,7 +39,7 @@ class ScalesGame {
     
     func guess(note: String) {
         let question = questionsIncomplete.first!
-        question.answer(note)
+        question.answer(Note.fromName(note))
         
         if (question.isComplete()){
             questionsIncomplete.removeAtIndex(0)
@@ -64,7 +62,7 @@ class ScalesGame {
                                 .isLastGuessCorrect() ?? false
     }
     
-    func getNote(index:Int) -> String {
+    func getNote(index:Int) -> Note {
         return Guitar.semitones[index]
     }
     

@@ -2,20 +2,22 @@ import Foundation
 
 class ScaleQuestion {
     let scale:Scale
-    var answers:[String] = []
-    let notesToAsk:[String]
+    var answers:[Note] = []
+    let notesToAsk:[Note]
     
     init(scale:Scale) {
         self.scale = scale
-        self.notesToAsk = Array(scale.notes().filter({$0 != "B" && $0 != "E"}).suffixFrom(1))
+        self.notesToAsk = Array(scale.notes()
+                                     .filter({$0 != Note.b()  && $0 != Note.e()})
+                                     .suffixFrom(1))
     }
     
     func note() -> String {
         let index = notesToAsk.startIndex.advancedBy(answers.count)
-        return notesToAsk[index]
+        return notesToAsk[index].name()
     }
     
-    func answer(note:String) {
+    func answer(note:Note) {
         answers.append(note)
     }
     
@@ -24,14 +26,8 @@ class ScaleQuestion {
     }
     
     func maskedDescription() -> String {
-        var result = scale.description()
-        for (index, note) in notesToAsk.enumerate() {
-            if (index >= answers.count) {
-                result = result.stringByReplacingOccurrencesOfString(note, withString: "_")
-            }
-        }
         
-        return result
+        return scale.maskedDescription(Array(self.notesToAsk.suffixFrom(answers.count)))
     }
     
     func isLastGuessCorrect() -> Bool {

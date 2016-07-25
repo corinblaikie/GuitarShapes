@@ -8,14 +8,14 @@ class FingerPositionTests: XCTestCase {
         
         let position:FingerPosition = FingerPosition(stringIndex: 0, fretIndex: -1)
         
-        XCTAssertEqual("E", position.note)
+        XCTAssertEqual(Note.e(), position.note)
     }
     
     func testIndexShouldBeCorrectForAnOpenEString() {
         
-        let position:FingerPosition = FingerPosition(string: Guitar.lowEString, note: "E")
+        let position:FingerPosition = FingerPosition(guitarString: Guitar.lowEString, note: Note.e())
         
-        XCTAssertEqual("E", position.note)
+        XCTAssertEqual(Note.e(), position.note)
         XCTAssertEqual(-1, position.fretIndex)
     }
     
@@ -23,14 +23,14 @@ class FingerPositionTests: XCTestCase {
         
         let position:FingerPosition = FingerPosition(stringIndex: 0, fretIndex: 0)
         
-        XCTAssertEqual("F", position.note)
+        XCTAssertEqual(Note.f(), position.note)
     }
     
     func testIndexShouldBeCorrectForAnEStringWithF() {
         
-        let position:FingerPosition = FingerPosition(string: Guitar.lowEString, note: "F")
+        let position:FingerPosition = FingerPosition(guitarString: Guitar.lowEString, note: Note.f())
         
-        XCTAssertEqual("F", position.note)
+        XCTAssertEqual(Note.f(), position.note)
         XCTAssertEqual(0, position.fretIndex)
     }
     
@@ -38,20 +38,20 @@ class FingerPositionTests: XCTestCase {
         
         let position:FingerPosition = FingerPosition(stringIndex: 0, fretIndex: 14)
         
-        XCTAssertEqual("G", position.note)
+        XCTAssertEqual(Note.g(), position.note)
     }
     
     func testNoteShouldBeCorrectForAnOpenAString() {
         
         let position:FingerPosition = FingerPosition(stringIndex: 1, fretIndex: -1)
         
-        XCTAssertEqual("A", position.note)
+        XCTAssertEqual(Note.a(), position.note)
     }
     
     func testNoteShouldBeCorrectForAnAStringWithFret() {
         
         let position:FingerPosition = FingerPosition(stringIndex: 1, fretIndex: 0)
         
-        XCTAssertEqual("A♯", position.note)
+        XCTAssertEqual(Note.aSharp(), position.note)
     }
 }

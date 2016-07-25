@@ -38,7 +38,7 @@ class ScaleTests :XCTestCase {
     
     func testCSharpMajorScaleHasCorrectNotes() {
         let scale = Scale.cSharpMajor()
-        XCTAssertEqual("C♯, D♯, E♯, F♯, G♯, A♯, B♯", scale.description())
+        XCTAssertEqual("C♯, D♯, F, F♯, G♯, A♯, C", scale.description())
     }
     
     func testDFlatMajorScaleHasCorrectNotes() {
@@ -63,12 +63,12 @@ class ScaleTests :XCTestCase {
     
     func testFMajorScaleHasCorrectNotes() {
         let scale = Scale.fMajor()
-        XCTAssertEqual("F, G, A, B♭, C, D, E", scale.description())
+        XCTAssertEqual("F, G, A, A♯, C, D, E", scale.description())
     }
     
     func testFSharpMajorScaleHasCorrectNotes() {
         let scale = Scale.fSharpMajor()
-        XCTAssertEqual("F♯, G♯, A♯, B, C♯, D♯, E♯", scale.description())
+        XCTAssertEqual("F♯, G♯, A♯, B, C♯, D♯, F", scale.description())
     }
     
     func testGFlatMajorScaleHasCorrectNotes() {

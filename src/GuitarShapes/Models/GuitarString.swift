@@ -3,14 +3,14 @@ import Foundation
 class GuitarString {
     
     let index:Int
-    let name:String
+    let name:Note
     
     init(index:Int, name:String) {
         self.index = index
-        self.name = name
+        self.name = Note.fromName(name)
     }
     
-    func indexOf(note:String) -> Int {
+    func indexOf(note:Note) -> Int {
         var spaces = getSpacesBetween(self.name, secondSemitone: note)
         
         if (spaces == 12) {
@@ -21,7 +21,7 @@ class GuitarString {
         return spaces - 1 // open string starts at -1
     }
     
-    private func getSpacesBetween(firstSemitone: String, secondSemitone: String) -> Int {
+    private func getSpacesBetween(firstSemitone: Note, secondSemitone: Note) -> Int {
         
         //TODO: refactor of Guitar.semitones
         
@@ -36,9 +36,10 @@ class GuitarString {
         }
         
         return 0
+    
     }
     
-    func noteAt(fretIndex:Int) -> String {
+    func noteAt(fretIndex:Int) -> Note {
         
         let startingNoteSemitoneIndex = Guitar.semitones.indexOf(self.name)
         let semitonesRange = fretIndex % Guitar.semitoneCount + 1  //+1 is to account for index starting at the first fret rather than the open string

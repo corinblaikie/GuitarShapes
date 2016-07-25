@@ -29,13 +29,14 @@ class NotesViewController : UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(NoteCell.id, forIndexPath: indexPath) as! NoteCell
         let note = game.getNote(indexPath.row)
-        cell.setContent(note)
+        cell.setContent(note.description())
         return cell
     }
     
     @IBAction func onGuess(sender: UIButton) {
         
-        let note = sender.titleLabel!.text!
+        let labelText = sender.titleLabel!.text!
+        let note = Note.fromName(labelText)
         game.guess(note)
         
         displayGuessFeedback(sender)

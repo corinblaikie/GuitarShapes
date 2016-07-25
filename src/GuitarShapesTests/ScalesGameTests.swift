@@ -46,7 +46,7 @@ class ScalesGameTests :XCTestCase {
                 
                 let noteAsked = game.currentScale().note()
                 
-                XCTAssertNotEqual(firstNoteInScale, noteAsked)
+                XCTAssert(noteAsked != firstNoteInScale)
                 
                 game.guess("A") // move to next turn
             }
@@ -56,7 +56,7 @@ class ScalesGameTests :XCTestCase {
     
     func testIsLastGuessCorrectWhenTrue() {
         let game = ScalesGame()
-        let firstNote = game.currentScale().notesToAsk.first!
+        let firstNote = game.currentScale().notesToAsk.first!.name()
         
         game.guess(firstNote)
         
@@ -68,7 +68,7 @@ class ScalesGameTests :XCTestCase {
     func testIsLastGuessCorrectWhenFalse() {
         let game = ScalesGame()
         
-        let incorrectNote = game.currentScale().notesToAsk[1]
+        let incorrectNote = game.currentScale().notesToAsk[1].name()
         
         game.guess(incorrectNote)
         
@@ -82,13 +82,13 @@ class ScalesGameTests :XCTestCase {
         
         // answer the first scale correctly
         for note in  game.currentScale().notesToAsk {
-            game.guess(note)
+            game.guess(note.name())
         }
         
         XCTAssertTrue(game.isLastGuessCorrect())
         
         // answer first note of second scale correctly
-        let correctNote = game.currentScale().notesToAsk.first!
+        let correctNote = game.currentScale().notesToAsk.first!.name()
         game.guess(correctNote)
         
         XCTAssertTrue(game.isLastGuessCorrect())
@@ -99,14 +99,14 @@ class ScalesGameTests :XCTestCase {
         
         // answer the first scale correctly
         for note in  game.currentScale().notesToAsk {
-            game.guess(note)
+            game.guess(note.name())
         }
         
         XCTAssertTrue(game.isLastGuessCorrect())
         
         // answer first note of second scale correctly
         let incorrectNote = game.currentScale().notesToAsk[1]
-        game.guess(incorrectNote)
+        game.guess(incorrectNote.name())
         
         XCTAssertFalse(game.isLastGuessCorrect())
     }
