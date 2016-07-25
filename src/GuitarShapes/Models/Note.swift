@@ -18,7 +18,9 @@ class Note : Equatable
     
         return Guitar.notes.filter({$0.values.contains(search)}).first!
     }
-
+    
+    
+    // name: returns primary name of the note e.g. A#
     func name(preferFlat:Bool = false) -> String {
         if (preferFlat) {
             let flatValue = values.filter({$0.containsString("♭")}).first
@@ -29,6 +31,7 @@ class Note : Equatable
         return values[0]
     }
     
+    // name: returns all of the note names e.g. A♯, B♭
     func description() -> String {
         return values.joinWithSeparator(Note.separator)
     }
