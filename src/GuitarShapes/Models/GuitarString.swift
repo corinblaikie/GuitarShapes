@@ -5,9 +5,9 @@ class GuitarString {
     let index:Int
     let name:Note
     
-    init(index:Int, name:String) {
+    init(index:Int, name:Note) {
         self.index = index
-        self.name = Note.fromName(name)
+        self.name = name
     }
     
     func indexOf(note:Note) -> Int {
