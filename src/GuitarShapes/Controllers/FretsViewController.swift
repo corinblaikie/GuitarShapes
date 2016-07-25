@@ -1,11 +1,3 @@
-//
-//  FretsViewController.swift
-//  GuitarShapes
-//
-//  Created by Corin Blaikie on 01/02/2016.
-//  Copyright (c) 2016 Corin Blaikie. All rights reserved.
-//
-
 import UIKit
 
 class FretsViewController : UIViewController {

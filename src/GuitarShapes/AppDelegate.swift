@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  GuitarShapes
-//
-//  Created by Corin Blaikie on 02/07/2015.
-//  Copyright (c) 2015 Corin Blaikie. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

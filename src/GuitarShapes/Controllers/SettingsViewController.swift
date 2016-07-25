@@ -1,11 +1,3 @@
-//
-//  SettingsViewController.swift
-//  GuitarShapes
-//
-//  Created by Corin Blaikie on 20/08/2015.
-//  Copyright (c) 2015 Corin Blaikie. All rights reserved.
-//
-
 import UIKit
 
 class SettingsViewController : UITableViewController {
@@ -26,11 +18,7 @@ class SettingsViewController : UITableViewController {
     
     @IBOutlet var minFretSlider: UISlider!
     
-    //@IBOutlet var maxFretSlider: UISlider!
-    
     @IBOutlet var minFretLabel: UILabel!
-    
-    //@IBOutlet var maxFretLabel: UILabel!
     
     @IBOutlet var markerFretSwitch: UISwitch!
     override func viewDidLoad() {
@@ -41,19 +29,13 @@ class SettingsViewController : UITableViewController {
         bStringSwitch.enabled = settings.isStringEnabled(Guitar.bString)
         highEStringSwitch.enabled = settings.isStringEnabled(Guitar.hightEString)
         minFretSlider.value = Float(settings.getMinFret());
-        //maxFretSlider.value = Float(settings.getMaxFret());
-        //maxFretSlider.minimumValue = minFretSlider.value
-        //minFretSlider.maximumValue = maxFretSlider.value
-        
         minFretSlider.continuous = false
-        //maxFretSlider.continuous = false
         markerFretSwitch.setOn(settings.getMarkerFrets(), animated: false)
     }
     
     @IBAction func maxFretSliderValueChanged(sender: UISlider) {
         sender.value = Float(Int(sender.value))
         settings.setMaxFret(Int(sender.value))
-        //maxFretLabel.text = "Max Fret: \(sender.value)"
     }
     
     @IBAction func minFretSliderValueChanged(sender: UISlider) {
