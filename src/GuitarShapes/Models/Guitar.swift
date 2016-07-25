@@ -16,9 +16,7 @@ class Guitar
     static let bString = GuitarString(index: 4, name: Note.b())
     static let hightEString = GuitarString(index: 5, name: Note.e())
     
-    //static let semitones:[String] = ["A", "A♯", "B", "C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯" ]
-    
-    static let semitones:[Note] = [
+    static let notes:[Note] = [
         Note.a(), Note.aSharp(), Note.b(), Note.c(), Note.cSharp(),
         Note.d(), Note.dSharp(), Note.e(), Note.f(), Note.fSharp(),
         Note.g(), Note.gSharp()
@@ -26,9 +24,7 @@ class Guitar
     
     static let stringCount = Guitar.strings.count
     
-    static let semitoneCount = Guitar.semitones.count
-    
-    func getRandomSemitone() -> Note {
-        return Guitar.semitones.randomItem()
+    func getRandomNote() -> Note {
+        return Guitar.notes.randomItem()
     }
 }

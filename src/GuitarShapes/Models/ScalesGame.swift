@@ -63,11 +63,11 @@ class ScalesGame {
     }
     
     func getNote(index:Int) -> Note {
-        return Guitar.semitones[index]
+        return Guitar.notes[index]
     }
     
     func noteCount() -> Int {
-        return Guitar.semitoneCount
+        return Guitar.notes.count
     }
     
     func questionsCount() -> Int {

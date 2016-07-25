@@ -16,7 +16,7 @@ class Note : Equatable
             search = name.substringToIndex(name.characters.indexOf("/")!)
         }
     
-        return Guitar.semitones.filter({$0.values.contains(search)}).first!
+        return Guitar.notes.filter({$0.values.contains(search)}).first!
     }
 
     func name(preferFlat:Bool = false) -> String {
