@@ -8,9 +8,11 @@ class ScalesGame {
     
     private var history = ScalesGameHistory.instance
     
+    private var settings = Settings.instance
+    
     init() {
         
-        for scale in Scale.all().shuffle() {
+        for scale in Scale.all().filter({ settings.isScaleEnabled($0) }).shuffle() {
             let question = ScaleQuestion(scale: scale)
             questionsIncomplete.append(question)
         }

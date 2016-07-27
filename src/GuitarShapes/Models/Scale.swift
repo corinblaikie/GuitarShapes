@@ -1,7 +1,7 @@
 import Foundation
 
 
-class Scale {
+class Scale : Equatable {
     let name:String
     let positions:[FingerPosition]
     
