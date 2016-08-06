@@ -51,30 +51,34 @@ class SettingsViewController : UITableViewController {
     @IBOutlet var gMajorScaleSwitch: UISwitch!
     
     override func viewDidLoad() {
-        lowEStringSwitch.enabled = settings.isStringEnabled(Guitar.lowEString)
-        aStringSwitch.enabled = settings.isStringEnabled(Guitar.aString)
-        dStringSwitch.enabled = settings.isStringEnabled(Guitar.dString)
-        gStringSwitch.enabled = settings.isStringEnabled(Guitar.gString)
-        bStringSwitch.enabled = settings.isStringEnabled(Guitar.bString)
-        highEStringSwitch.enabled = settings.isStringEnabled(Guitar.hightEString)
+        lowEStringSwitch.on = settings.isStringEnabled(Guitar.lowEString)
+        aStringSwitch.on = settings.isStringEnabled(Guitar.aString)
+        dStringSwitch.on = settings.isStringEnabled(Guitar.dString)
+        gStringSwitch.on = settings.isStringEnabled(Guitar.gString)
+        bStringSwitch.on = settings.isStringEnabled(Guitar.bString)
+        highEStringSwitch.on = settings.isStringEnabled(Guitar.hightEString)
         minFretSlider.value = Float(settings.getMinFret());
         minFretSlider.continuous = false
         markerFretSwitch.setOn(settings.getMarkerFrets(), animated: false)
         
-        aFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.aFlatMajor)
-        aScaleSwitch.enabled = settings.isScaleEnabled(Scale.aMajor)
-        bScaleSwitch.enabled = settings.isScaleEnabled(Scale.bMajor)
-        bFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.bFlatMajor)
-        cScaleSwitch.enabled = settings.isScaleEnabled(Scale.cMajor)
-        cSharpSwitch.enabled = settings.isScaleEnabled(Scale.cSharpMajor)
-        dFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.dFlatMajor)
-        dScaleSwitch.enabled = settings.isScaleEnabled(Scale.dMajor)
-        eFlatSwitch.enabled = settings.isScaleEnabled(Scale.eFlatMajor)
-        eScaleSwitch.enabled = settings.isScaleEnabled(Scale.eMajor)
-        fScaleSwitch.enabled = settings.isScaleEnabled(Scale.fMajor)
-        fSharpScaleSwitch.enabled = settings.isScaleEnabled(Scale.fSharpMajor)
-        gFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.gFlatMajor)
-        gMajorScaleSwitch.enabled = settings.isScaleEnabled(Scale.gMajor)
+        aFlatScaleSwitch.on = settings.isScaleEnabled(Scale.aFlatMajor)
+        aScaleSwitch.on = settings.isScaleEnabled(Scale.aMajor)
+        bScaleSwitch.on = settings.isScaleEnabled(Scale.bMajor)
+        bFlatScaleSwitch.on = settings.isScaleEnabled(Scale.bFlatMajor)
+        cScaleSwitch.on = settings.isScaleEnabled(Scale.cMajor)
+        cSharpSwitch.on = settings.isScaleEnabled(Scale.cSharpMajor)
+        dFlatScaleSwitch.on = settings.isScaleEnabled(Scale.dFlatMajor)
+        dScaleSwitch.on = settings.isScaleEnabled(Scale.dMajor)
+        eFlatSwitch.on = settings.isScaleEnabled(Scale.eFlatMajor)
+        eScaleSwitch.on = settings.isScaleEnabled(Scale.eMajor)
+        fScaleSwitch.on = settings.isScaleEnabled(Scale.fMajor)
+        fSharpScaleSwitch.on = settings.isScaleEnabled(Scale.fSharpMajor)
+        gFlatScaleSwitch.on = settings.isScaleEnabled(Scale.gFlatMajor)
+        gMajorScaleSwitch.on = settings.isScaleEnabled(Scale.gMajor)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        SettingsRepository().Save(settings)
     }
     
     @IBAction func aFlatScaleSwitched(sender: UISwitch) {
