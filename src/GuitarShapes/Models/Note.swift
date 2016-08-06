@@ -20,14 +20,43 @@ class Note : Equatable
     }
     
     
-    // name: returns primary name of the note e.g. A#
-    func name(preferFlat:Bool = false) -> String {
-        if (preferFlat) {
-            let flatValue = values.filter({$0.containsString("♭")}).first
+    // name: returns primary name of the note e.g. A♯
+    func name(preferences:NotePreferences) -> String {
+        
+        if (preferences.preferBFlat && values.contains("B♭")) {
+            return "B♭"
+        }
+        
+        if (preferences.preferBSharp && values.contains("B♯")) {
+            return "B♯"
+        }
+        
+        if (preferences.preferEFlat && values.contains("E♭")) {
+            return "E♭"
+        }
+        
+        if (preferences.preferESharp && values.contains("E♯")) {
+            return "E♯"
+        }
+        
+        if (preferences.preferFlats) {
+            let flatValue = values.filter({$0.containsString("♭") && $0 != "B♭" && $0 != "E♭"}).first
             if (flatValue != nil) {
                 return flatValue!
             }
         }
+        
+        if (preferences.preferSharps) {
+            let sharpValue = values.filter({$0.containsString("♯") && $0 != "B♯" && $0 != "E♯"}).first
+            if (sharpValue != nil) {
+                return sharpValue!
+            }
+        }
+        
+        return name()
+    }
+    
+    func name() -> String {
         return values[0]
     }
     

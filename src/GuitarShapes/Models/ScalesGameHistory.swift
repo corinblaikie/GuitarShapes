@@ -1,28 +1,65 @@
 import Foundation
 
-class ScalesGameHistory {
+import Foundation
+import UIKit
+import CoreMedia
+
+class ScalesGameHistoryRepository {
+    
+    private let libraryDirectory = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)[0]
+    private let file = "/scalesgamehistory.plist"
+    
+    func Get() -> ScalesGameHistory {
+        let data = NSKeyedUnarchiver.unarchiveObjectWithFile(libraryDirectory + file)
+        if (data != nil) {
+            return data as! ScalesGameHistory
+        }
+        
+        return ScalesGameHistory()
+    }
+    
+    func Save(history:ScalesGameHistory) {
+       let result = NSKeyedArchiver.archiveRootObject(history, toFile: libraryDirectory + file)
+       NSLog("Saving scales history: \(result)")
+    }
+}
+
+class ScalesGameHistory : NSCoder {
     
     private let settings:Settings = Settings.instance
-    private var questions:[DateTimeStamped<ScaleQuestion>] = []
+    private var questions:[ScaleQuestion] = []
     
     private var stats:[ScaleQuestionStats] = []
     
-    static let instance = ScalesGameHistory()
-    
-    private init() {
-        // static instance property to be used instead
+    static let instance = ScalesGameHistoryRepository().Get()
+
+    struct PropertyKey {
+        static let questionsKey = "quesitons"
+        //static let statsKey = "statsKey"
     }
+    
+    override init() {
+    }
+    
+    init(coder aDecoder: NSCoder) {
+        questions = aDecoder.decodeObjectForKey(PropertyKey.questionsKey) as! [ScaleQuestion]
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(questions, forKey: PropertyKey.questionsKey)
+    }
+    
     
     func add(question:ScaleQuestion) {
         
         //store answer
-    
-        let stampedQuestion = DateTimeStamped<ScaleQuestion>(value: question)
-        questions.append(stampedQuestion)
+        
+        
+        questions.append(question)
         
         // calculate score for position
-        let questionsForScale = questions.filter({$0.value.scale == question.scale})
-        let score = Double(questionsForScale.filter({$0.value.correct()}).count) / Double(questionsForScale.count);
+        let questionsForScale = questions.filter({$0.scale == question.scale})
+        let score = Double(questionsForScale.filter({$0.correct()}).count) / Double(questionsForScale.count);
         let newStats = ScaleQuestionStats(scale: question.scale, score: score)
         
         stats = stats.filter({$0.scale != question.scale}) // remove old position
@@ -41,6 +78,6 @@ class ScalesGameHistory {
     }
     
     func percentCorrect() -> Double {
-        return Double(questions.filter({$0.value.correct()}).count) / Double(questions.count)  * 100
+        return Double(questions.filter({$0.correct()}).count) / Double(questions.count)  * 100
     }
 }

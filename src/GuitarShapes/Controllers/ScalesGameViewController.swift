@@ -12,7 +12,11 @@ class ScalesGameViewController : UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet var scaleNameLabel: UILabel!
     
+    @IBOutlet var scaleScoreLabel: UILabel!
+    
     override func viewDidLoad() {
+        scaleScoreLabel.layer.cornerRadius = 25
+        scaleScoreLabel.layer.masksToBounds = true
         reset()
     }
     
@@ -69,6 +73,7 @@ class ScalesGameViewController : UIViewController, UICollectionViewDataSource, U
     private func refresh() {
         
         scaleNameLabel.text = game.scaleName()
+        scaleScoreLabel.text = String(format: "%.2f", game.scaleScore())
         notesLabel.text = game.notesDescription()
     }
     

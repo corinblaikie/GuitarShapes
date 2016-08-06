@@ -6,13 +6,26 @@ class ScalesGame {
     
     private var questionsComplete:[ScaleQuestion] = []
     
+    private var histories = ScalesGameHistoryRepository()
+    
     private var history = ScalesGameHistory.instance
     
     private var settings = Settings.instance
     
     init() {
         
-        for scale in Scale.all().filter({ settings.isScaleEnabled($0) }).shuffle() {
+        let lowScoringScales = history.getScalesByLowestScore()
+            .shuffle()
+            .prefix(3)
+        
+        let randomScales = Scale.all.filter({ settings.isScaleEnabled($0) }).shuffle()
+            .shuffle()
+            .filter({ !lowScoringScales.contains($0) })
+            .prefix(3)
+        
+        let scales = Array((lowScoringScales + randomScales))
+        
+        for scale in scales {
             let question = ScaleQuestion(scale: scale)
             questionsIncomplete.append(question)
         }
@@ -25,6 +38,15 @@ class ScalesGame {
         }
         
         return questionsIncomplete.first!.maskedDescription()
+    }
+    
+    func scaleScore() -> Double {
+        
+        if (questionsIncomplete.isEmpty) {
+            return 0
+        }
+        
+        return history.getScoreFor(questionsIncomplete.first!.scale)
     }
     
     func scaleName() -> String {
@@ -47,6 +69,10 @@ class ScalesGame {
             questionsIncomplete.removeAtIndex(0)
             questionsComplete.append(question)
             history.add(question)
+        }
+        
+        if isOver() {
+            histories.Save(history)
         }
     }
     

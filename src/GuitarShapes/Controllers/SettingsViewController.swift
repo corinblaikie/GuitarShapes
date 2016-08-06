@@ -61,76 +61,76 @@ class SettingsViewController : UITableViewController {
         minFretSlider.continuous = false
         markerFretSwitch.setOn(settings.getMarkerFrets(), animated: false)
         
-        aFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.aFlatMajor())
-        aScaleSwitch.enabled = settings.isScaleEnabled(Scale.aMajor())
-        bScaleSwitch.enabled = settings.isScaleEnabled(Scale.bMajor())
-        bFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.bFlatMajor())
-        cScaleSwitch.enabled = settings.isScaleEnabled(Scale.cMajor())
-        cSharpSwitch.enabled = settings.isScaleEnabled(Scale.cSharpMajor())
-        dFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.dFlatMajor())
-        dScaleSwitch.enabled = settings.isScaleEnabled(Scale.dMajor())
-        eFlatSwitch.enabled = settings.isScaleEnabled(Scale.eFlatMajor())
-        eScaleSwitch.enabled = settings.isScaleEnabled(Scale.eMajor())
-        fScaleSwitch.enabled = settings.isScaleEnabled(Scale.fMajor())
-        fSharpScaleSwitch.enabled = settings.isScaleEnabled(Scale.fSharpMajor())
-        gFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.gFlatMajor())
-        gMajorScaleSwitch.enabled = settings.isScaleEnabled(Scale.gMajor())
+        aFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.aFlatMajor)
+        aScaleSwitch.enabled = settings.isScaleEnabled(Scale.aMajor)
+        bScaleSwitch.enabled = settings.isScaleEnabled(Scale.bMajor)
+        bFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.bFlatMajor)
+        cScaleSwitch.enabled = settings.isScaleEnabled(Scale.cMajor)
+        cSharpSwitch.enabled = settings.isScaleEnabled(Scale.cSharpMajor)
+        dFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.dFlatMajor)
+        dScaleSwitch.enabled = settings.isScaleEnabled(Scale.dMajor)
+        eFlatSwitch.enabled = settings.isScaleEnabled(Scale.eFlatMajor)
+        eScaleSwitch.enabled = settings.isScaleEnabled(Scale.eMajor)
+        fScaleSwitch.enabled = settings.isScaleEnabled(Scale.fMajor)
+        fSharpScaleSwitch.enabled = settings.isScaleEnabled(Scale.fSharpMajor)
+        gFlatScaleSwitch.enabled = settings.isScaleEnabled(Scale.gFlatMajor)
+        gMajorScaleSwitch.enabled = settings.isScaleEnabled(Scale.gMajor)
     }
     
     @IBAction func aFlatScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.aFlatMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.aFlatMajor, enabled: sender.on)
     }
     
     @IBAction func aScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.aMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.aMajor, enabled: sender.on)
     }
     
     @IBAction func bFlatScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.bFlatMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.bFlatMajor, enabled: sender.on)
     }
     
     @IBAction func bScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.bMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.bMajor, enabled: sender.on)
     }
     
     @IBAction func cScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.cMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.cMajor, enabled: sender.on)
     }
     
     @IBAction func cSharpScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.cSharpMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.cSharpMajor, enabled: sender.on)
     }
     
     @IBAction func dFlatScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.dFlatMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.dFlatMajor, enabled: sender.on)
     }
     
     @IBAction func dScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.dMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.dMajor, enabled: sender.on)
     }
     
     @IBAction func eFlatScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.eFlatMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.eFlatMajor, enabled: sender.on)
     }
     
     @IBAction func eScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.eMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.eMajor, enabled: sender.on)
     }
     
     @IBAction func fScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.fMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.fMajor, enabled: sender.on)
     }
     
     @IBAction func fSharpScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.fSharpMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.fSharpMajor, enabled: sender.on)
     }
     
     @IBAction func gFlatScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.gFlatMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.gFlatMajor, enabled: sender.on)
     }
     
     @IBAction func gScaleSwitched(sender: UISwitch) {
-        settings.toggleScale(Scale.gMajor(), enabled: sender.on)
+        settings.toggleScale(Scale.gMajor, enabled: sender.on)
     }
     
     @IBAction func minFretSliderValueChanged(sender: UISlider) {

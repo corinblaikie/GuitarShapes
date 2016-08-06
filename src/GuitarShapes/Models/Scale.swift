@@ -1,47 +1,70 @@
 import Foundation
 
+protocol NotePreferences {
+    var preferBFlat:Bool { get }
+    var preferBSharp:Bool { get }
+    
+    var preferEFlat:Bool { get }
+    var preferESharp:Bool { get }
+    
+    var preferSharps:Bool { get }
+    var preferFlats:Bool { get }
+}
 
-class Scale : Equatable {
+class Scale : Equatable, NotePreferences {
     let name:String
     let positions:[FingerPosition]
     
-    init(name:String, positions:[FingerPosition]) {
+    let preferBFlat:Bool
+    let preferBSharp:Bool
+    
+    let preferEFlat:Bool
+    let preferESharp:Bool
+    
+    let preferSharps:Bool
+    let preferFlats:Bool
+    
+    init(name:String,
+         positions:[FingerPosition],
+         preferBFlat:Bool = false,
+         preferBSharp:Bool = false,
+         preferEFlat:Bool = false,
+         preferESharp:Bool = false,
+         preferFlats:Bool = false,
+         preferSharps:Bool = false) {
         self.name = name
         self.positions = positions
+        self.preferFlats = preferFlats || name.containsString("♭")
+        self.preferSharps = preferSharps || name.containsString("♯")
+        self.preferBFlat = preferBFlat || name.containsString("♭")
+        self.preferBSharp = preferBSharp || name.containsString("♯")
+        self.preferEFlat = preferEFlat || name.containsString("♭")
+        self.preferESharp = preferESharp || name.containsString("♯")
     }
     
-    private func isFlat() -> Bool {
-        return name.containsString("♭")
-    }
-    
-    static func all() -> [Scale] {
-        return [Scale.aFlatMajor(),
-                Scale.aMajor(),
-                Scale.bFlatMajor(),
-                Scale.bMajor(),
-                Scale.cMajor(),
-                Scale.cSharpMajor(),
-                Scale.dFlatMajor(),
-                Scale.dMajor(),
-                Scale.eFlatMajor(),
-                Scale.eMajor(),
-                Scale.fMajor(),
-                Scale.fSharpMajor(),
-                Scale.gFlatMajor(),
-                Scale.gMajor() ]
-        
-    }
+    static let all = [Scale.aFlatMajor,
+                Scale.aMajor,
+                Scale.bFlatMajor,
+                Scale.bMajor,
+                Scale.cMajor,
+                Scale.cSharpMajor,
+                Scale.dFlatMajor,
+                Scale.dMajor,
+                Scale.eFlatMajor,
+                Scale.eMajor,
+                Scale.fMajor,
+                Scale.fSharpMajor,
+                Scale.gFlatMajor,
+                Scale.gMajor ]
     
     func description() -> String {
         // returns positions in scale as string e.g. "C, D, E, F, G, A, B, C"
-        let preferFlat = self.isFlat()
-        let notes = self.positions.map({ (position: FingerPosition) -> String in position.note.name(preferFlat) })
+        let notes = self.positions.map({ (position: FingerPosition) -> String in position.note.name(self) })
         return notes.joinWithSeparator(", ")
     }
     
     func maskedDescription(notesToMask:[Note]) -> String {
-        let preferFlat = self.isFlat()
-        return notes().map({notesToMask.contains($0) ? "_" : $0.name(preferFlat) }).joinWithSeparator(", ")
+        return notes().map({notesToMask.contains($0) ? "_" : $0.name(self) }).joinWithSeparator(", ")
     }
     
     func notes() -> [Note] {
@@ -49,9 +72,13 @@ class Scale : Equatable {
         return positions.map({ (position: FingerPosition) -> Note in position.note })
     }
     
-    static func aFlatMajor() -> Scale {
-        // ???
-        let scalePositions = FingerPosition.fromArray([
+    static func fromName(name:String) -> Scale {
+        return all.filter({$0.name == name})[0]
+    }
+    
+    static let aFlatMajor = Scale(
+        name: "A♭ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.aString, "A♭"),
             (Guitar.aString, "B♭"),
             (Guitar.aString, "C"),
@@ -59,16 +86,13 @@ class Scale : Equatable {
             (Guitar.dString, "E♭"),
             (Guitar.dString, "F"),
             (Guitar.gString, "G")
-            ])
-        
-        return Scale(name: "A♭ Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func aMajor() -> Scale {
-        // A, B, C♯, D, E, F♯, G♯
-        
-        // positions = FingerPosition.fromIndexArray([(1,-1), (1,1), (1,3), (2,-1), (2,1), (2,3), (3,0)])
-        let scalePositions = FingerPosition.fromArray([
+    
+    static let aMajor = Scale(
+        name: "A Major",
+        positions: FingerPosition.fromArray([
             (Guitar.aString, "A"),
             (Guitar.aString, "B"),
             (Guitar.aString, "C♯"),
@@ -76,13 +100,12 @@ class Scale : Equatable {
             (Guitar.dString, "E"),
             (Guitar.dString, "F♯"),
             (Guitar.gString, "G♯")
-            ])
-        return Scale(name: "A Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func bFlatMajor() -> Scale {
-        // ???
-        let scalePositions = FingerPosition.fromArray([
+    static let bFlatMajor = Scale(
+        name: "B♭ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.aString, "B♭"),
             (Guitar.aString, "C"),
             (Guitar.dString, "D"),
@@ -90,16 +113,12 @@ class Scale : Equatable {
             (Guitar.dString, "F"),
             (Guitar.gString, "G"),
             (Guitar.gString, "A")
-            ])
-        
-        return Scale(name: "B♭ Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func bMajor() -> Scale {
-        // B, C♯, D♯, E, F♯, G♯, A♯
-        
-        // let positions = FingerPosition.fromIndexArray([])
-        let scalePositions = FingerPosition.fromArray([
+    static let bMajor = Scale(
+        name: "B Major",
+        positions: FingerPosition.fromArray([
             (Guitar.aString, "B"),
             (Guitar.aString, "C♯"),
             (Guitar.dString, "D♯"),
@@ -107,15 +126,12 @@ class Scale : Equatable {
             (Guitar.dString, "F♯"),
             (Guitar.gString, "G♯"),
             (Guitar.gString, "A♯")
-            ])
-        
-        return Scale(name: "B Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func cMajor() -> Scale {
-        // C, D, E, F, G, A, B
-        //let positions = FingerPosition.fromIndexArray([(1,2), (2,-1), (2,1), (2,2), (3,-1), (3,1), (4,-1)])
-        let scalePositions = FingerPosition.fromArray([
+    static let cMajor = Scale(
+        name: "C Major",
+        positions: FingerPosition.fromArray([
             (Guitar.aString, "C"),
             (Guitar.dString, "D"),
             (Guitar.dString, "E"),
@@ -124,13 +140,11 @@ class Scale : Equatable {
             (Guitar.gString, "A"),
             (Guitar.bString, "B")
         ])
-            
-        return Scale(name: "C Major", positions: scalePositions)
-    }
+    )
     
-    static func cSharpMajor() -> Scale {
-        // ???
-        let scalePositions = FingerPosition.fromArray([
+    static let cSharpMajor = Scale(
+        name: "C♯ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.aString, "C♯"),
             (Guitar.dString, "D♯"),
             (Guitar.dString, "E♯"),
@@ -138,14 +152,12 @@ class Scale : Equatable {
             (Guitar.gString, "G♯"),
             (Guitar.gString, "A♯"),
             (Guitar.bString, "B♯")
-            ])
-        
-        return Scale(name: "C♯ Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func dFlatMajor() -> Scale {
-        // ???
-        let scalePositions = FingerPosition.fromArray([
+    static let dFlatMajor = Scale(
+        name: "D♭ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.dString, "D♭"),
             (Guitar.dString, "E♭"),
             (Guitar.dString, "F"),
@@ -153,16 +165,12 @@ class Scale : Equatable {
             (Guitar.gString, "A♭"),
             (Guitar.bString, "B♭"),
             (Guitar.bString, "C")
-            ])
-        
-        return Scale(name: "D♭ Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func dMajor() -> Scale {
-        // D, E, F♯, G, A, B, C♯
-        
-        // let positions = FingerPosition.fromIndexArray([(2,-1), (2,1), (2,3),  (3,-1), (3,1), (4,-1), (4,1)])
-        let scalePositions = FingerPosition.fromArray([
+    static let dMajor = Scale(
+        name: "D Major",
+        positions: FingerPosition.fromArray([
             (Guitar.dString, "D"),
             (Guitar.dString, "E"),
             (Guitar.dString, "F♯"),
@@ -170,14 +178,12 @@ class Scale : Equatable {
             (Guitar.gString, "A"),
             (Guitar.bString, "B"),
             (Guitar.bString, "C♯")
-            ])
-        
-        return Scale(name: "D Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func eFlatMajor() -> Scale {
-        // ???
-        let scalePositions = FingerPosition.fromArray([
+    static let eFlatMajor = Scale(
+        name: "E♭ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.lowEString, "E♭"),
             (Guitar.lowEString, "F"),
             (Guitar.lowEString, "G"),
@@ -185,15 +191,12 @@ class Scale : Equatable {
             (Guitar.aString, "B♭"),
             (Guitar.aString, "C"),
             (Guitar.dString, "D")
-            ])
-        return Scale(name: "E♭ Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func eMajor() -> Scale {
-        // E, F♯, G♯, A, B, C♯, D♯
-        
-        // let positions = FingerPosition.fromIndexArray([(0,-1), (0,1), (0,3), (1,-1), (1,1), (1,3), (2,0)])
-        let scalePositions = FingerPosition.fromArray([
+    static let eMajor = Scale(
+        name: "E Major",
+        positions: FingerPosition.fromArray([
             (Guitar.lowEString, "E"),
             (Guitar.lowEString, "F♯"),
             (Guitar.lowEString, "G♯"),
@@ -201,31 +204,25 @@ class Scale : Equatable {
             (Guitar.aString, "B"),
             (Guitar.aString, "C♯"),
             (Guitar.dString, "D♯")
-            ])
-        
-        return Scale(name: "E Major", positions: scalePositions)
-    }
+        ])
+    )
     
-    static func fSharpMajor() -> Scale {
-        
-        let scalePositions = FingerPosition.fromArray([
+    static let fSharpMajor = Scale(
+        name: "F♯ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.lowEString, "F♯"),
             (Guitar.lowEString, "G♯"),
             (Guitar.aString, "A♯"),
             (Guitar.aString, "B"),
             (Guitar.aString, "C♯"),
             (Guitar.dString, "D♯"),
-            (Guitar.dString, "E♯"),
-            ])
-        
-        return Scale(name: "F♯ Major", positions: scalePositions)
-    }
+            (Guitar.dString, "E♯")
+        ])
+    )
     
-    
-    
-    static func fMajor() -> Scale {
-        
-        let scalePositions = FingerPosition.fromArray([
+    static let fMajor = Scale(
+        name: "F Major",
+        positions: FingerPosition.fromArray([
             (Guitar.lowEString, "F"),
             (Guitar.lowEString, "G"),
             (Guitar.aString, "A"),
@@ -233,33 +230,27 @@ class Scale : Equatable {
             (Guitar.aString, "C"),
             (Guitar.dString, "D"),
             (Guitar.dString, "E")
-            ])
-        
-        return Scale(name: "F Major", positions: scalePositions)
-    }
+        ]),
+        preferBFlat: true
+    )
     
-    
-    static func gFlatMajor() -> Scale {
-        
-        let scalePositions = FingerPosition.fromArray([
+    static let gFlatMajor = Scale(
+        name: "G♭ Major",
+        positions: FingerPosition.fromArray([
             (Guitar.lowEString, "G♭"),
             (Guitar.aString, "A♭"),
             (Guitar.aString, "B♭"),
             (Guitar.aString, "C♭"),
             (Guitar.dString, "D♭"),
             (Guitar.dString, "E♭"),
-            (Guitar.dString, "F"),
-            ])
-        
-        return Scale(name: "G♭ Major", positions: scalePositions)
-    }
+            (Guitar.dString, "F")
+        ])
+    )
     
     
-    static func gMajor() -> Scale {
-        // G, A, B, C, D, E, F♯
-        
-        //let positions = FingerPosition.fromIndexArray([(0,2), (1,-1), (1,1), (1,2), (2,-1), (2,1), (2,3)]
-        let scalePositions = FingerPosition.fromArray([
+    static let gMajor = Scale(
+        name: "G Major",
+        positions: FingerPosition.fromArray([
             (Guitar.lowEString, "G"),
             (Guitar.aString, "A"),
             (Guitar.aString, "B"),
@@ -268,9 +259,7 @@ class Scale : Equatable {
             (Guitar.dString, "E"),
             (Guitar.bString, "F♯")
         ])
-        
-        return Scale(name: "G Major", positions: scalePositions)
-    }
+    )
 }
 
 

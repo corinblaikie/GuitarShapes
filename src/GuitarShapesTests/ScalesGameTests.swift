@@ -21,7 +21,7 @@ class ScalesGameTests :XCTestCase {
         
         // Random values (12 (turns) * 12 (scales) * 2 (maj, min)
         // so test lots of times
-        for _ in 0...100 {
+        for _ in 0...10 {
             let game = ScalesGame()
             
             while (!game.isOver()) {
@@ -38,7 +38,7 @@ class ScalesGameTests :XCTestCase {
         
         // Random values (12 (turns) * 12 (scales) * 2 (maj, min)
         // so test lots of times
-        for _ in 0...100 {
+        for _ in 0...10 {
             let game = ScalesGame()
             
             while (!game.isOver()) {

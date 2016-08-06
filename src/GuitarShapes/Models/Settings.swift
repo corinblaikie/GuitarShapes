@@ -13,7 +13,7 @@ class Settings {
     private var maxFret:Int = 12
     private var markerFretIndexes = [2, 4, 6, 8, 11, 14, 16, 18, 19]
     
-    private var scalesEnabled:[Bool] = [Bool](count:Scale.all().count, repeatedValue: true)
+    private var scalesEnabled:[Bool] = [Bool](count:Scale.all.count, repeatedValue: true)
     
     func getMarkerFrets() -> Bool {
         return onlyMarkerFrets
@@ -42,7 +42,7 @@ class Settings {
     }
     
     func isScaleEnabled(scale:Scale) -> Bool {
-        let index = Scale.all().indexOf(scale)!
+        let index = Scale.all.indexOf(scale)!
         return scalesEnabled[index]
     }
     
@@ -67,7 +67,7 @@ class Settings {
     }
     
     func toggleScale(scale:Scale, enabled:Bool) {
-        let index = Scale.all().indexOf(scale)!
+        let index = Scale.all.indexOf(scale)!
         scalesEnabled[index] = enabled
     }
     
